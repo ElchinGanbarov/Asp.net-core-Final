@@ -3,35 +3,30 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using AspFinal.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using AspFinal.Models;
+using Repository.Repository.HomeRepository;
 
 namespace AspFinal.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IHomeRepository _homeRepository;
+        public HomeController(IHomeRepository homeRepository)
         {
-            _logger = logger;
+            _homeRepository = homeRepository;
         }
-
         public IActionResult Index()
         {
-            return View();
-        }
+            HomeViewModel model = new HomeViewModel
+            {
+                HomeSliders = _homeRepository.GetHomeSliders()
+               
 
-        public IActionResult Privacy()
-        {
-            return View();
+            };
+            return View(model);
         }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+      
     }
 }

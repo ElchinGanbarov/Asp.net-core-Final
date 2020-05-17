@@ -1,0 +1,10 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "Iframe-Height-Jquery-Plugin@1.2.5",
+      "destination": "wwwroot/lib/Iframe-Height-Jquery-Plugin/"
+    }
+  ]
+}
