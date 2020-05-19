@@ -8,8 +8,11 @@ namespace AspFinal.Models
 {
     public class HomeViewModel
     {
-        public IEnumerable<HomeSlider> HomeSliders { get; set; }
+        public IEnumerable<AboutUs> AboutUs { get; set; }
         public IEnumerable<Category> Categories { get; set; }
+        public Settings Settings { get; set; }
+        public IEnumerable<Agent> Agents { get; set; }
+        public IEnumerable<Brand> Brands { get; set; }
 
     }
 }

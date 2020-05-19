@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Repository.Models
 {
-    public class Comment:BaseEntity
+    public class Comments:BaseEntity
     {
         [Required]
         [MaxLength(50)]

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -10,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Repository.Data;
+using Repository.Repository.CategoryRepository;
 using Repository.Repository.HomeRepository;
 
 namespace AspFinal
@@ -27,12 +29,15 @@ namespace AspFinal
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddAutoMapper(typeof(Startup));
             services.AddDbContext<JotexDbContext>(options => options.
                                                             UseSqlServer(Configuration.
                                                             GetConnectionString("Default"),
                                                             x => x.MigrationsAssembly("Repository")));
 
             services.AddTransient<IHomeRepository, HomeRepository>();
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

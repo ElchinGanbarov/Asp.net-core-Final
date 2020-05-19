@@ -16,25 +16,16 @@ namespace Repository.Models
         public string Text { get; set; }
         [Required]
         [MaxLength(50)]
-        public string Email1 { get; set; }
+        public string Key { get; set; }
         [Required]
         [MaxLength(50)]
-        public string Email2 { get; set; }
+        public string Value { get; set; }
         [Required]
         [MaxLength(50)]
-        public string Adress  { get; set; }
+        public string Logo { get; set; }
         [Required]
         [MaxLength(50)]
-        public string PhoneNum1 { get; set; }
-        [Required]
-        [MaxLength(50)]
-        public string PhoneNum2 { get; set; }
-        public int StartDate { get; set; }
-        public int EndDate { get; set; }
-        public int StartTime { get; set; }
-        public int EndTime { get; set; }
-        public int ImagesId { get; set; }
-        public Images Images { get; set; }
+        public string  Image { get; set; }
 
     }
 }

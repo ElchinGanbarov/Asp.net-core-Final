@@ -19,11 +19,11 @@ namespace AspFinal.Controllers
         }
         public IActionResult Index()
         {
-            HomeViewModel model = new HomeViewModel
+            var model = new HomeViewModel
             {
-                HomeSliders = _homeRepository.GetHomeSliders()
-               
-
+                AboutUs = _homeRepository.GetAboutUs(),
+                Categories = _homeRepository.GetCategories(),
+                Settings = _homeRepository.GetSettings(),
             };
             return View(model);
         }

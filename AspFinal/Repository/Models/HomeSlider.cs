@@ -7,13 +7,21 @@ namespace Repository.Models
 {
    public class HomeSlider:BaseEntity
     {
+        public int OrderBy { get; set; }
         [Required]
         [MaxLength(50)]
         public string Title { get; set; }
         [Required]
         [MaxLength(500)]
-        public string Text { get; set; }
-        public int ImagesId { get; set; }
-        public Images Images { get; set; }
+        public string Slogan { get; set; }
+        [Required]
+        [MaxLength(100)]
+        public string Image { get; set; }
+        [Required]
+        [MaxLength(50)]
+        public string ActionText { get; set; }
+        [Required]
+        [MaxLength(200)]
+        public string EndPoint { get; set; }
     }
 }

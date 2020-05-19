@@ -22,7 +22,6 @@ namespace Repository.Models
         [Required]
         [MaxLength(500)]
         public string Description { get; set; }
-        public int  ImagesId { get; set; }
-        public Images Images { get; set; }
+   
     }
 }

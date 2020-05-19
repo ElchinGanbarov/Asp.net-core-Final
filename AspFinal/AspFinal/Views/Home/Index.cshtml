@@ -1,6 +1,6 @@
-﻿@model HomeViewModel
- 
- <!-- start of hero -->
+﻿  @model HomeViewModel   
+
+   <!-- start of hero -->
 <section class="hero-slider hero-style-1">
     <div class="bottom-links">
         <div>
@@ -20,30 +20,10 @@
     </div>
 
     <div class="swiper-container">
-        <div class="swiper-wrapper">
-            @foreach (var item in Model.HomeSliders)
-            {
-                <div class="swiper-slide">
-                    <div class="slide-inner slide-bg-image" data-background="/images/slider/@item.Images.Image">
-                        <div class="container">
-                            <div data-swiper-parallax="300" class="slide-title">
-                                <h2>@item.Title</h2>
-                            </div>
-                            <div data-swiper-parallax="400" class="slide-text">
-                                <p>@item.Text</p>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div data-swiper-parallax="500" class="slide-btns">
-                                <a href="#" class="theme-btn">More About Us</a>
-                            </div>
-                        </div>
-                    </div> <!-- end slide-inner -->
-                </div> <!-- end swiper-slide -->
-            }
-
-
-
-        </div>
+        
+         <!--HOME SLIDER ITEM-->
+        <vc:home-slider></vc:home-slider>
+      
         <!-- end swiper-wrapper -->
         <!-- swipper controls -->
         <div class="swiper-pagination"></div>
@@ -63,22 +43,29 @@
                     <div class="left-col">
                         <div class="section-title">
                             <span>About us</span>
-                            <h2>We are a Award Wining Company!</h2>
+                            <h2>@Model.AboutUs.ElementAt(0).AboutTitle </h2>
                         </div>
                         <div class="details">
-                            <p>With a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out</p>
-                            <h5>Phone: ++88123475754</h5>
+                            <p>@Model.AboutUs.ElementAt(0).AboutText</p>
+                            <h5>Phone:@Model.AboutUs.ElementAt(0).Phone</h5>
                         </div>
                         <div class="fun-fact-area">
                             <div class="fun-fact-grids clearfix">
-                                <div class="grid">
-                                    <div class="info">
-                                        <i class="fi flaticon-umbrella-2"></i>
-                                        <h3><span class="odometer" data-count="4500">00</span></h3>
-                                        <p>Insurance Policies</p>
-                                    </div>
-                                </div>
-                                <div class="grid">
+                                @foreach (var about in Model.AboutUs)
+                                {
+                                    @foreach (var item in about.AboutDetails)
+                                    {
+                                        <div class="grid">
+                                            <div class="info">
+                                                <i class="@item.Logo"></i>
+                                                <h3><span class="odometer" data-count="@item.Value">00</span></h3>
+                                                <p>@item.Key</p>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+
+                                @*<div class="grid">
                                     <div class="info">
                                         <i class="fi flaticon-agent"></i>
                                         <h3><span class="odometer" data-count="68">00</span></h3>
@@ -98,18 +85,18 @@
                                         <h3><span class="odometer" data-count="2500">00</span>%</h3>
                                         <p>Happy clients</p>
                                     </div>
-                                </div>
+                                </div>*@
                             </div>
                         </div>
                     </div>
                     <div class="right-col">
                         <div class="about-info">
-                            <h3>Since 1950, we are providing the insurance solution for our client’s and we are very successfull about the area. </h3>
-                            <p>It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out</p>
+                            <h3>@Model.AboutUs.ElementAt(1).AboutTitle </h3>
+                            <p>@Model.AboutUs.ElementAt(1).AboutText</p>
                             <a href="#" class="theme-btn">More about us</a>
                         </div>
                         <div class="img-holder">
-                            <img src="~/images/about.jpg" alt>
+                            <img src="~/images/@Model.AboutUs.ElementAt(1).Image" alt>
                         </div>
                     </div>
                 </div>
@@ -130,13 +117,17 @@
             </div>
             <div class="col col-xs-12">
                 <div class="service-slider">
-                    <div class="grid">
-                        <a href="#">
-                            <i class="fi flaticon-life"></i>
-                            <h3>Life Insurance</h3>
-                        </a>
-                    </div>
-                    <div class="grid">
+                    @foreach (var item in Model.Categories)
+                    {
+                        <div class="grid">
+                            <a href="#">
+                                <i class="@item.Logo"></i>
+                                <h3>@item.Name</h3>
+                            </a>
+                        </div>
+                    }
+
+                    @*<div class="grid">
                         <a href="#">
                             <i class="fi flaticon-car"></i>
                             <h3>Car insurance</h3>
@@ -159,7 +150,7 @@
                             <i class="fi flaticon-life"></i>
                             <h3>Life Insurance</h3>
                         </a>
-                    </div>
+                    </div>*@
                 </div>
             </div>
         </div>
@@ -360,7 +351,7 @@
                         </div>
                         <div class="blog-post-w-media post">
                             <div class="entry-media">
-                                <img src="~/images/blog/img-1.jpg" alt="">
+                                <img src="~/images/blog/img-1.jpg" alt>
                             </div>
                             <p class="cat"><i class="fi flaticon-tag-1"></i> Insurance, company</p>
                             <h3><a href="#">How to shape your child’s dream into reality!</a></h3>

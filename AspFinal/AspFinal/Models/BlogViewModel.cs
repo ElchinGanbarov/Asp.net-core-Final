@@ -8,7 +8,6 @@ namespace AspFinal.Models
 {
     public class BlogViewModel
     {
-        public IEnumerable<Category> Categories { get; set; }
-        public IEnumerable<Post> Posts { get; set; }
+
     }
 }

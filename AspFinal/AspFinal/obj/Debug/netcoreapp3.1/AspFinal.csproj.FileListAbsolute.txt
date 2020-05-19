@@ -150,5 +150,8 @@ C:\Users\Admin\Desktop\Asp.net core Final\AspFinal\AspFinal\bin\Debug\netcoreapp
 C:\Users\Admin\Desktop\Asp.net core Final\AspFinal\AspFinal\obj\Debug\netcoreapp3.1\Razor\Views\Pages\Error404.cshtml.g.cs
 C:\Users\Admin\Desktop\Asp.net core Final\AspFinal\AspFinal\bin\Debug\netcoreapp3.1\libman.json
 C:\Users\Admin\Desktop\Asp.net core Final\AspFinal\AspFinal\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Admin\Desktop\Asp.net core Final\AspFinal\AspFinal\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\Admin\Desktop\Asp.net core Final\AspFinal\AspFinal\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Admin\Desktop\Asp.net core Final\AspFinal\AspFinal\obj\Debug\netcoreapp3.1\AspFinal.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Desktop\Asp.net core Final\AspFinal\AspFinal\obj\Debug\netcoreapp3.1\AspFinal.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Admin\Desktop\Asp.net core Final\AspFinal\AspFinal\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\HomeSlider\Default.cshtml.g.cs

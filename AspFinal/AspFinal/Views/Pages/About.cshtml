@@ -1,5 +1,6 @@
-﻿        <!-- start page-title -->
-<section class="page-title">
+﻿    @model HomeViewModel 
+   <!-- start page-title -->
+<section class="page-title" style="background-image:url(/images/@Model.Settings.CoverImage)">
     <div class="page-title-container">
         <div class="page-title-wrapper">
             <div class="container">
@@ -27,9 +28,9 @@
                     <img src="~/images/logo-3.png" alt>
                 </div>
                 <div class="info">
-                    <h3>88123475754</h3>
-                    <h4>demo@example.com</h4>
-                    <a href="#" class="theme-btn">More About Us</a>
+                    <h3>@Model.Settings.Phone</h3>
+                    <h4>@Model.Settings.Email</h4>
+                    <a asp-controller="pages" asp-action="about" class="theme-btn">More About Us</a>
                 </div>
             </div>
             <div class="col col-md-5">
@@ -119,21 +120,25 @@
                                 <h2>Our Agents</h2>
                             </div>
                             <div class="info">
-                                <h3>88123475754</h3>
-                                <h4>demo@example.com</h4>
-                                <a href="#" class="theme-btn">More About Us</a>
+                                <h3>@Model.Settings.Phone</h3>
+                                <h4>@Model.Settings.Email</h4>
+                                <a asp-controller="pages" asp-action="aboutus" class="theme-btn">More About Us</a>
                             </div>
                         </div>
-                        <div class="grid">
-                            <div class="img-holder">
-                                <img src="~/images/agents/img-1.jpg" alt>
+                        @foreach (var item in Model.Agents)
+                        {
+                            <div class="grid">
+                                <div class="img-holder">
+                                    <img src="~/images/agents/@item.Image" alt="item.Image">
+                                </div>
+                                <div class="agent-info">
+                                    <h4>@item.Name</h4>
+                                    <p>@item.WorkExperience</p>
+                                </div>
                             </div>
-                            <div class="agent-info">
-                                <h4>Michel Jhon</h4>
-                                <p>Marketing Expert</p>
-                            </div>
-                        </div>
-                        <div class="grid">
+                        }
+
+                        @*<div class="grid">
                             <div class="img-holder">
                                 <img src="~/images/agents/img-2.jpg" alt>
                             </div>
@@ -186,7 +191,7 @@
                                 <h4>Michel Jhon</h4>
                                 <p>Marketing Expert</p>
                             </div>
-                        </div>
+                        </div>*@
                     </div>
                 </div>
             </div>
@@ -264,10 +269,14 @@
         <div class="row">
             <div class="col col-xs-12">
                 <div class="partner-grids partners-slider">
-                    <div class="grid">
-                        <img src="~/images/partners/img-1.png" alt="">
-                    </div>
-                    <div class="grid">
+                    @foreach (var item in Model.Brands)
+                    {
+                        <div class="grid">
+                            <img src="~/images/partners/@item.Logo" alt="">
+                        </div>
+                    }
+
+                    @*<div class="grid">
                         <img src="~/images/partners/img-2.png" alt="">
                     </div>
                     <div class="grid">
@@ -278,7 +287,7 @@
                     </div>
                     <div class="grid">
                         <img src="~/images/partners/img-5.png" alt="">
-                    </div>
+                    </div>*@
                 </div>
             </div>
         </div>
