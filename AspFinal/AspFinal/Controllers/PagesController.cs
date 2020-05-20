@@ -22,9 +22,10 @@ namespace AspFinal.Controllers
             {
                 Categories = _homeRepository.GetCategories(),
                 Settings = _homeRepository.GetSettings(),
-                Agents=_homeRepository.GetAgents(),
-                Brands=_homeRepository.GetBrands()
-                
+                Agents = _homeRepository.GetAgents(),
+                Brands = _homeRepository.GetBrands(),
+                Testimonials = _homeRepository.GetTestimonials()
+
             };
             return View(model);
         }
@@ -42,7 +43,8 @@ namespace AspFinal.Controllers
             var model = new HomeViewModel
             {
                 Categories = _homeRepository.GetCategories(),
-                Settings = _homeRepository.GetSettings()
+                Settings = _homeRepository.GetSettings(),
+                Testimonials = _homeRepository.GetTestimonials()
             };
             return View(model);
         }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Desktop\\Asp.net core Final\\AspFinal\\Repository\\Repository.csproj": {}
+    "C:\\Users\\Admin\\Desktop\\Asp.net-core-Final\\AspFinal\\Repository\\Repository.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Desktop\\Asp.net core Final\\AspFinal\\Repository\\Repository.csproj": {
+    "C:\\Users\\Admin\\Desktop\\Asp.net-core-Final\\AspFinal\\Repository\\Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\Asp.net core Final\\AspFinal\\Repository\\Repository.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\Asp.net-core-Final\\AspFinal\\Repository\\Repository.csproj",
         "projectName": "Repository",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\Asp.net core Final\\AspFinal\\Repository\\Repository.csproj",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\Asp.net-core-Final\\AspFinal\\Repository\\Repository.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\Asp.net core Final\\AspFinal\\Repository\\obj\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\Asp.net-core-Final\\AspFinal\\Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

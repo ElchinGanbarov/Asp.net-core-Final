@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Desktop\\Asp.net core Final\\AspFinal\\AspFinal\\AspFinal.csproj": {}
+    "C:\\Users\\Admin\\Desktop\\Asp.net-core-Final\\AspFinal\\AspFinal\\AspFinal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Desktop\\Asp.net core Final\\AspFinal\\AspFinal\\AspFinal.csproj": {
+    "C:\\Users\\Admin\\Desktop\\Asp.net-core-Final\\AspFinal\\AspFinal\\AspFinal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\Asp.net core Final\\AspFinal\\AspFinal\\AspFinal.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\Asp.net-core-Final\\AspFinal\\AspFinal\\AspFinal.csproj",
         "projectName": "AspFinal",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\Asp.net core Final\\AspFinal\\AspFinal\\AspFinal.csproj",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\Asp.net-core-Final\\AspFinal\\AspFinal\\AspFinal.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\Asp.net core Final\\AspFinal\\AspFinal\\obj\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\Asp.net-core-Final\\AspFinal\\AspFinal\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -30,8 +30,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Admin\\Desktop\\Asp.net core Final\\AspFinal\\Repository\\Repository.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Desktop\\Asp.net core Final\\AspFinal\\Repository\\Repository.csproj"
+              "C:\\Users\\Admin\\Desktop\\Asp.net-core-Final\\AspFinal\\Repository\\Repository.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\Asp.net-core-Final\\AspFinal\\Repository\\Repository.csproj"
               }
             }
           }
@@ -86,14 +86,14 @@
         }
       }
     },
-    "C:\\Users\\Admin\\Desktop\\Asp.net core Final\\AspFinal\\Repository\\Repository.csproj": {
+    "C:\\Users\\Admin\\Desktop\\Asp.net-core-Final\\AspFinal\\Repository\\Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\Asp.net core Final\\AspFinal\\Repository\\Repository.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\Asp.net-core-Final\\AspFinal\\Repository\\Repository.csproj",
         "projectName": "Repository",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\Asp.net core Final\\AspFinal\\Repository\\Repository.csproj",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\Asp.net-core-Final\\AspFinal\\Repository\\Repository.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\Asp.net core Final\\AspFinal\\Repository\\obj\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\Asp.net-core-Final\\AspFinal\\Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

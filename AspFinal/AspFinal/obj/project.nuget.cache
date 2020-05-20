@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Tsza7sI8JRlI6rEc56c9pqscIfS2IKgyBAHIDJEM604r86f45qOc/qaOZqIsoa4ZlsRLTFthR2E5ZXuvaVvHkQ==",
+  "dgSpecHash": "QVcVITGEmm++tMbWYZ3FJ1oUIdncM8na0EjiyusqTALpUOUUN5M6WNpR3GHX0KmNSCIMUrI9mf04hYujqkk0kg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\Desktop\\Asp.net core Final\\AspFinal\\AspFinal\\AspFinal.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\Desktop\\Asp.net-core-Final\\AspFinal\\AspFinal\\AspFinal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",

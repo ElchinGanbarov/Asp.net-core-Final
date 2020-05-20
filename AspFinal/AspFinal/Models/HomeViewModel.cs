@@ -13,6 +13,14 @@ namespace AspFinal.Models
         public Settings Settings { get; set; }
         public IEnumerable<Agent> Agents { get; set; }
         public IEnumerable<Brand> Brands { get; set; }
+        public IEnumerable<LikeableArea> LikeableAreas { get; set; }
+        public IEnumerable<Testimonial> Testimonials { get; set; }
+        public IEnumerable<Blog> Blogs { get; set; }
+        public IEnumerable<Blog> Cases { get; set; }
+
+
+
+
 
     }
 }

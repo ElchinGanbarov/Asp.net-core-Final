@@ -20,7 +20,8 @@ namespace AspFinal.Controllers
             var model = new HomeViewModel
             {
                 Categories = _homeRepository.GetCategories(),
-                Settings = _homeRepository.GetSettings()
+                Settings = _homeRepository.GetSettings(),
+                Agents = _homeRepository.GetAgents()
             };
             return View(model);
         }
@@ -29,8 +30,10 @@ namespace AspFinal.Controllers
             var model = new HomeViewModel
             {
                 Categories = _homeRepository.GetCategories(),
-                Settings = _homeRepository.GetSettings()
+                Settings = _homeRepository.GetSettings(),
+                
             };
+            ViewBag.Agents = _homeRepository.GetCaseAgent();
             return View(model);
         }
     }

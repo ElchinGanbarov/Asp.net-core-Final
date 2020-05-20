@@ -1,6 +1,5 @@
-﻿  @model HomeViewModel   
-
-   <!-- start of hero -->
+﻿@model HomeViewModel
+<!-- start of hero -->
 <section class="hero-slider hero-style-1">
     <div class="bottom-links">
         <div>
@@ -20,10 +19,10 @@
     </div>
 
     <div class="swiper-container">
-        
-         <!--HOME SLIDER ITEM-->
+
+        <!--HOME SLIDER ITEM-->
         <vc:home-slider></vc:home-slider>
-      
+
         <!-- end swiper-wrapper -->
         <!-- swipper controls -->
         <div class="swiper-pagination"></div>
@@ -66,26 +65,26 @@
                                 }
 
                                 @*<div class="grid">
-                                    <div class="info">
-                                        <i class="fi flaticon-agent"></i>
-                                        <h3><span class="odometer" data-count="68">00</span></h3>
-                                        <p>Insurance Agents</p>
+                                        <div class="info">
+                                            <i class="fi flaticon-agent"></i>
+                                            <h3><span class="odometer" data-count="68">00</span></h3>
+                                            <p>Insurance Agents</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="grid">
-                                    <div class="info">
-                                        <i class="fi flaticon-badge"></i>
-                                        <h3><span class="odometer" data-count="50">00</span>+</h3>
-                                        <p>Award win</p>
+                                    <div class="grid">
+                                        <div class="info">
+                                            <i class="fi flaticon-badge"></i>
+                                            <h3><span class="odometer" data-count="50">00</span>+</h3>
+                                            <p>Award win</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="grid">
-                                    <div class="info">
-                                        <i class="fi flaticon-smile"></i>
-                                        <h3><span class="odometer" data-count="2500">00</span>%</h3>
-                                        <p>Happy clients</p>
-                                    </div>
-                                </div>*@
+                                    <div class="grid">
+                                        <div class="info">
+                                            <i class="fi flaticon-smile"></i>
+                                            <h3><span class="odometer" data-count="2500">00</span>%</h3>
+                                            <p>Happy clients</p>
+                                        </div>
+                                    </div>*@
                             </div>
                         </div>
                     </div>
@@ -128,29 +127,29 @@
                     }
 
                     @*<div class="grid">
-                        <a href="#">
-                            <i class="fi flaticon-car"></i>
-                            <h3>Car insurance</h3>
-                        </a>
-                    </div>
-                    <div class="grid">
-                        <a href="#">
-                            <i class="fi flaticon-shield-1"></i>
-                            <h3>Health insurance</h3>
-                        </a>
-                    </div>
-                    <div class="grid">
-                        <a href="#">
-                            <i class="fi flaticon-house"></i>
-                            <h3>Home insurance</h3>
-                        </a>
-                    </div>
-                    <div class="grid">
-                        <a href="#">
-                            <i class="fi flaticon-life"></i>
-                            <h3>Life Insurance</h3>
-                        </a>
-                    </div>*@
+                            <a href="#">
+                                <i class="fi flaticon-car"></i>
+                                <h3>Car insurance</h3>
+                            </a>
+                        </div>
+                        <div class="grid">
+                            <a href="#">
+                                <i class="fi flaticon-shield-1"></i>
+                                <h3>Health insurance</h3>
+                            </a>
+                        </div>
+                        <div class="grid">
+                            <a href="#">
+                                <i class="fi flaticon-house"></i>
+                                <h3>Home insurance</h3>
+                            </a>
+                        </div>
+                        <div class="grid">
+                            <a href="#">
+                                <i class="fi flaticon-life"></i>
+                                <h3>Life Insurance</h3>
+                            </a>
+                        </div>*@
                 </div>
             </div>
         </div>
@@ -166,17 +165,17 @@
                     <div class="left-col">
                         <div class="section-title">
                             <span>Likeable area</span>
-                            <h2>Best Life Insurance Company in the World!</h2>
+                            <h2>@Model.LikeableAreas.ElementAt(0).Title</h2>
                         </div>
                         <div class="details">
-                            <p>With a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out</p>
+                            <p>@Model.LikeableAreas.ElementAt(0).Text</p>
                         </div>
                     </div>
                     <div class="right-col">
                         <div class="contact-info">
                             <p>Call us for details</p>
-                            <h2>++8801682530219</h2>
-                            <a href="#" class="theme-btn-s3">Contact with Us</a>
+                            <h2>@Model.LikeableAreas.ElementAt(0).AboutUs.Phone</h2>
+                            <a href="#" class="theme-btn-s3">@Model.LikeableAreas.ElementAt(0).ActionText</a>
                         </div>
                     </div>
                 </div>
@@ -184,13 +183,13 @@
             <div class="col col-xs-12">
                 <div class="video-area">
                     <div class="img-holder">
-                        <img src="~/images/cta.jpg" alt>
+                        <img src="~/images/@Model.LikeableAreas.ElementAt(0).Photo" alt="@Model.LikeableAreas.ElementAt(0).Photo">
                         <div class="video-btns">
                             <a href="https://www.youtube.com/embed/7e90gBu4pas?autoplay=1" class="video-btn" data-type="iframe" tabindex="0"><i class="fi flaticon-play"></i></a>
                         </div>
                     </div>
                     <div class="experience-text">
-                        <p><span>15</span> Years of <br>experience</p>
+                        <p><span>@Model.LikeableAreas.ElementAt(0).Experince</span> Years of <br>experience</p>
                     </div>
                 </div>
             </div>
@@ -310,27 +309,31 @@
         <div class="row">
             <div class="col col-xs-12">
                 <div class="testimonials-slider">
-                    <div class="grid">
-                        <p>Recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer</p>
-                        <div class="quoter">
-                            <h4>Mr. Bang</h4>
-                            <span>Life insurance holder</span>
+                    @foreach (var item in Model.Testimonials)
+                    {
+                        <div class="grid">
+                            <p>@item.Review</p>
+                            <div class="quoter">
+                                <h4>@item.Name</h4>
+                                <span>@item.WorkExperience</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="grid">
-                        <p>Recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer</p>
-                        <div class="quoter">
-                            <h4>Mr. Bang</h4>
-                            <span>Life insurance holder</span>
+                    }
+
+                    @*<div class="grid">
+                            <p>Recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer</p>
+                            <div class="quoter">
+                                <h4>Mr. Bang</h4>
+                                <span>Life insurance holder</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="grid">
-                        <p>Recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer</p>
-                        <div class="quoter">
-                            <h4>Mr. Bang</h4>
-                            <span>Life insurance holder</span>
-                        </div>
-                    </div>
+                        <div class="grid">
+                            <p>Recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer</p>
+                            <div class="quoter">
+                                <h4>Mr. Bang</h4>
+                                <span>Life insurance holder</span>
+                            </div>
+                        </div>*@
                 </div>
             </div>
         </div>

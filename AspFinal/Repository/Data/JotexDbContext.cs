@@ -7,9 +7,9 @@ using System.Text;
 
 namespace Repository.Data
 {
-    public class JotexDbContext:DbContext
+    public class JotexDbContext : DbContext
     {
-        public JotexDbContext(DbContextOptions<JotexDbContext> options):base(options)
+        public JotexDbContext(DbContextOptions<JotexDbContext> options) : base(options)
         {
 
         }
@@ -26,6 +26,14 @@ namespace Repository.Data
         public DbSet<AboutDetail> AboutDetails { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Agent> Agents { get; set; }
+        public DbSet<Testimonial> Testimonials { get; set; }
+        public DbSet<LikeableArea> LikeableAreas { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<BlogText> BlogTexts { get; set; }
+
+
+
+
 
 
     }

@@ -20,7 +20,8 @@ namespace AspFinal.Controllers
             var model = new HomeViewModel
             {
                 Categories = _homeRepository.GetCategories(),
-                Settings = _homeRepository.GetSettings()
+                Settings = _homeRepository.GetSettings(),
+                Blogs = _homeRepository.GetBlogs()
             };
             return View(model);
         }

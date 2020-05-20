@@ -5,18 +5,19 @@ using System.Text;
 
 namespace Repository.Models
 {
-    public class Agent:BaseEntity
+    public class Testimonial : BaseEntity
     {
+        [Required]
+        public int AboutUsId { get; set; }
+        [Required]
+        [MaxLength(500)]
+        public string Review { get; set; }
         [Required]
         [MaxLength(50)]
         public string Name { get; set; }
         [Required]
         [MaxLength(50)]
-        public string Image { get; set; }
-        [Required]
-        [MaxLength(50)]
         public string WorkExperience { get; set; }
-        public int CategoryId { get; set; }
-        public Category Category { get; set; }
+        public AboutUs AboutUs { get; set; }
     }
 }

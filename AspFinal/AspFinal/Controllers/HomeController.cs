@@ -24,9 +24,12 @@ namespace AspFinal.Controllers
                 AboutUs = _homeRepository.GetAboutUs(),
                 Categories = _homeRepository.GetCategories(),
                 Settings = _homeRepository.GetSettings(),
+                LikeableAreas = _homeRepository.GetLikeableAreas(),
+                Testimonials = _homeRepository.GetTestimonials()
+
             };
             return View(model);
         }
-      
+
     }
 }

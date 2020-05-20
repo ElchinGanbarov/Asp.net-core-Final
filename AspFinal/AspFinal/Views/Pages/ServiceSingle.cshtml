@@ -42,35 +42,35 @@
                         }
 
                         @*<li>
-            <a href="#02" data-toggle="tab">
-                <i class="fi flaticon-car"></i>
-                <h3>Car insurance</h3>
-            </a>
-        </li>
-        <li>
-            <a href="#03" data-toggle="tab">
-                <i class="fi flaticon-shield-1"></i>
-                <h3>Home Insurance</h3>
-            </a>
-        </li>
-        <li>
-            <a href="#04" data-toggle="tab">
-                <i class="fi flaticon-house"></i>
-                <h3>Health insurance</h3>
-            </a>
-        </li>
-        <li>
-            <a href="#05" data-toggle="tab">
-                <i class="fi flaticon-cost"></i>
-                <h3>Investemnt plan</h3>
-            </a>
-        </li>
-        <li>
-            <a href="#06" data-toggle="tab">
-                <i class="fi flaticon-coffee-cup"></i>
-                <h3>Life Insurance</h3>
-            </a>
-        </li>*@
+                                <a href="#02" data-toggle="tab">
+                                    <i class="fi flaticon-car"></i>
+                                    <h3>Car insurance</h3>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#03" data-toggle="tab">
+                                    <i class="fi flaticon-shield-1"></i>
+                                    <h3>Home Insurance</h3>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#04" data-toggle="tab">
+                                    <i class="fi flaticon-house"></i>
+                                    <h3>Health insurance</h3>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#05" data-toggle="tab">
+                                    <i class="fi flaticon-cost"></i>
+                                    <h3>Investemnt plan</h3>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#06" data-toggle="tab">
+                                    <i class="fi flaticon-coffee-cup"></i>
+                                    <h3>Life Insurance</h3>
+                                </a>
+                            </li>*@
                     </ul>
 
                     <div class="tab-content">
@@ -150,393 +150,393 @@
                                 </div>
                             </div>
                         </div>
-                        @foreach(var category in Model.Categories)
+                        @foreach (var category in Model.Categories)
                         {
                             <div class="tab-pane fade" id="@category.Id">
-                        <div class="content-area clearfix">
-                            <div class="grid info-grid">
-                                <h3>@category.Name</h3>
-                                <p>@category.Description</p>
-                                <table>
-                                    <tbody>
-                                        @foreach (var item in category.CategorySpecs)
-                                        {
-                                            <tr>
-                                                <td>@item.Key</td>
-                                                <td>@item.Value</td>
-                                            </tr>
-                                        }
+                                <div class="content-area clearfix">
+                                    <div class="grid info-grid">
+                                        <h3>@category.Name</h3>
+                                        <p>@Html.Raw(@category.Description)</p>
+                                        <table>
+                                            <tbody>
+                                                @foreach (var item in category.CategorySpecs)
+                                                {
+                                                    <tr>
+                                                        <td>@item.Key</td>
+                                                        <td>@item.Value</td>
+                                                    </tr>
+                                                }
 
-                                        @*<tr>
-                                            <td>Grace Period:</td>
-                                            <td>up to 30 days</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Support:</td>
-                                            <td>24 hours</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Policy Modification:</td>
-                                            <td>Online</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Number of people:</td>
-                                            <td>Max 5</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Location:</td>
-                                            <td>Dubai</td>
-                                        </tr>*@
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="grid">
-                                <img src="~/images/service-single/@category.Image" alt="@category.Image">
-                            </div>
-                        </div>
-                        <div class="bottom-info">
-                            <div class="text">
-                                <h4>Samsa was a travelling salesman and above it there hung a picture that he had recently cut out of an illustrated magazine</h4>
-                                <p>Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather</p>
-                            </div>
-                            <div class="pdf-dwn-area">
-                                <a href="#">
-                                    <i class="ti-receipt"></i>
-                                    <h5>General Insurance Conditions</h5>
-                                    <p>Document size: 34kb</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="features-grid clearfix">
-                            <div class="grid">
-                                <div class="icon">
-                                    <i class="fi flaticon-house"></i>
+                                                @*<tr>
+                                                        <td>Grace Period:</td>
+                                                        <td>up to 30 days</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Support:</td>
+                                                        <td>24 hours</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Policy Modification:</td>
+                                                        <td>Online</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Number of people:</td>
+                                                        <td>Max 5</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Location:</td>
+                                                        <td>Dubai</td>
+                                                    </tr>*@
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="grid">
+                                        <img src="~/images/service-single/@category.Image" alt="@category.Image">
+                                    </div>
                                 </div>
-                                <h3>House protected</h3>
-                                <p>Window at the dull weather</p>
-                            </div>
-                            <div class="grid">
-                                <div class="icon">
-                                    <i class="fi flaticon-umbrella-1"></i>
+                                <div class="bottom-info">
+                                    <div class="text">
+                                        <h4>Samsa was a travelling salesman and above it there hung a picture that he had recently cut out of an illustrated magazine</h4>
+                                        <p>Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather</p>
+                                    </div>
+                                    <div class="pdf-dwn-area">
+                                        <a href="#">
+                                            <i class="ti-receipt"></i>
+                                            <h5>General Insurance Conditions</h5>
+                                            <p>Document size: 34kb</p>
+                                        </a>
+                                    </div>
                                 </div>
-                                <h3>Helth protected</h3>
-                                <p>Window at the dull weather</p>
-                            </div>
-                            <div class="grid">
-                                <div class="icon">
-                                    <i class="fi flaticon-cost"></i>
+                                <div class="features-grid clearfix">
+                                    <div class="grid">
+                                        <div class="icon">
+                                            <i class="fi flaticon-house"></i>
+                                        </div>
+                                        <h3>House protected</h3>
+                                        <p>Window at the dull weather</p>
+                                    </div>
+                                    <div class="grid">
+                                        <div class="icon">
+                                            <i class="fi flaticon-umbrella-1"></i>
+                                        </div>
+                                        <h3>Helth protected</h3>
+                                        <p>Window at the dull weather</p>
+                                    </div>
+                                    <div class="grid">
+                                        <div class="icon">
+                                            <i class="fi flaticon-cost"></i>
+                                        </div>
+                                        <h3>Small Premium</h3>
+                                        <p>Window at the dull weather</p>
+                                    </div>
                                 </div>
-                                <h3>Small Premium</h3>
-                                <p>Window at the dull weather</p>
                             </div>
-                        </div>
-                    </div>
                         }
-                        
+
                         @*<div class="tab-pane fade" id="03">
-                            <div class="content-area clearfix">
-                                <div class="grid info-grid">
-                                    <h3>Home Insurance</h3>
-                                    <p>Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather</p>
-                                    <p><strong>Samsa was a travelling salesman and above it there hung a picture that he had recently cut out of an illustrated magazine</strong></p>
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td>Payment:</td>
-                                                <td>from $15.000 to $1.000.000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Grace Period:</td>
-                                                <td>up to 30 days</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Support:</td>
-                                                <td>24 hours</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Policy Modification:</td>
-                                                <td>Online</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Number of people:</td>
-                                                <td>Max 5</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Location:</td>
-                                                <td>Dubai</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <div class="content-area clearfix">
+                                    <div class="grid info-grid">
+                                        <h3>Home Insurance</h3>
+                                        <p>Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather</p>
+                                        <p><strong>Samsa was a travelling salesman and above it there hung a picture that he had recently cut out of an illustrated magazine</strong></p>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Payment:</td>
+                                                    <td>from $15.000 to $1.000.000</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Grace Period:</td>
+                                                    <td>up to 30 days</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Support:</td>
+                                                    <td>24 hours</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Policy Modification:</td>
+                                                    <td>Online</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Number of people:</td>
+                                                    <td>Max 5</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Location:</td>
+                                                    <td>Dubai</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="grid">
+                                        <img src="~/images/service-single/img-3.jpg" alt>
+                                    </div>
                                 </div>
-                                <div class="grid">
-                                    <img src="~/images/service-single/img-3.jpg" alt>
+                                <div class="bottom-info">
+                                    <div class="text">
+                                        <h4>Samsa was a travelling salesman and above it there hung a picture that he had recently cut out of an illustrated magazine</h4>
+                                        <p>Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather</p>
+                                    </div>
+                                    <div class="pdf-dwn-area">
+                                        <a href="#">
+                                            <i class="ti-receipt"></i>
+                                            <h5>General Insurance Conditions</h5>
+                                            <p>Document size: 34kb</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="features-grid clearfix">
+                                    <div class="grid">
+                                        <div class="icon">
+                                            <i class="fi flaticon-house"></i>
+                                        </div>
+                                        <h3>House protected</h3>
+                                        <p>Window at the dull weather</p>
+                                    </div>
+                                    <div class="grid">
+                                        <div class="icon">
+                                            <i class="fi flaticon-umbrella-1"></i>
+                                        </div>
+                                        <h3>Helth protected</h3>
+                                        <p>Window at the dull weather</p>
+                                    </div>
+                                    <div class="grid">
+                                        <div class="icon">
+                                            <i class="fi flaticon-cost"></i>
+                                        </div>
+                                        <h3>Small Premium</h3>
+                                        <p>Window at the dull weather</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="bottom-info">
-                                <div class="text">
-                                    <h4>Samsa was a travelling salesman and above it there hung a picture that he had recently cut out of an illustrated magazine</h4>
-                                    <p>Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather</p>
+                            <div class="tab-pane fade" id="04">
+                                <div class="content-area clearfix">
+                                    <div class="grid info-grid">
+                                        <h3>Health Insurance</h3>
+                                        <p>Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather</p>
+                                        <p><strong>Samsa was a travelling salesman and above it there hung a picture that he had recently cut out of an illustrated magazine</strong></p>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Payment:</td>
+                                                    <td>from $15.000 to $1.000.000</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Grace Period:</td>
+                                                    <td>up to 30 days</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Support:</td>
+                                                    <td>24 hours</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Policy Modification:</td>
+                                                    <td>Online</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Number of people:</td>
+                                                    <td>Max 5</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Location:</td>
+                                                    <td>Dubai</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="grid">
+                                        <img src="~/images/service-single/img-4.jpg" alt>
+                                    </div>
                                 </div>
-                                <div class="pdf-dwn-area">
-                                    <a href="#">
-                                        <i class="ti-receipt"></i>
-                                        <h5>General Insurance Conditions</h5>
-                                        <p>Document size: 34kb</p>
-                                    </a>
+                                <div class="bottom-info">
+                                    <div class="text">
+                                        <h4>Samsa was a travelling salesman and above it there hung a picture that he had recently cut out of an illustrated magazine</h4>
+                                        <p>Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather</p>
+                                    </div>
+                                    <div class="pdf-dwn-area">
+                                        <a href="#">
+                                            <i class="ti-receipt"></i>
+                                            <h5>General Insurance Conditions</h5>
+                                            <p>Document size: 34kb</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="features-grid clearfix">
+                                    <div class="grid">
+                                        <div class="icon">
+                                            <i class="fi flaticon-house"></i>
+                                        </div>
+                                        <h3>House protected</h3>
+                                        <p>Window at the dull weather</p>
+                                    </div>
+                                    <div class="grid">
+                                        <div class="icon">
+                                            <i class="fi flaticon-umbrella-1"></i>
+                                        </div>
+                                        <h3>Helth protected</h3>
+                                        <p>Window at the dull weather</p>
+                                    </div>
+                                    <div class="grid">
+                                        <div class="icon">
+                                            <i class="fi flaticon-cost"></i>
+                                        </div>
+                                        <h3>Small Premium</h3>
+                                        <p>Window at the dull weather</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="features-grid clearfix">
-                                <div class="grid">
-                                    <div class="icon">
-                                        <i class="fi flaticon-house"></i>
+                            <div class="tab-pane fade" id="05">
+                                <div class="content-area clearfix">
+                                    <div class="grid info-grid">
+                                        <h3>Investment plan</h3>
+                                        <p>Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather</p>
+                                        <p><strong>Samsa was a travelling salesman and above it there hung a picture that he had recently cut out of an illustrated magazine</strong></p>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Payment:</td>
+                                                    <td>from $15.000 to $1.000.000</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Grace Period:</td>
+                                                    <td>up to 30 days</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Support:</td>
+                                                    <td>24 hours</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Policy Modification:</td>
+                                                    <td>Online</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Number of people:</td>
+                                                    <td>Max 5</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Location:</td>
+                                                    <td>Dubai</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
-                                    <h3>House protected</h3>
-                                    <p>Window at the dull weather</p>
+                                    <div class="grid">
+                                        <img src="~/images/service-single/img-5.jpg" alt>
+                                    </div>
                                 </div>
-                                <div class="grid">
-                                    <div class="icon">
-                                        <i class="fi flaticon-umbrella-1"></i>
+                                <div class="bottom-info">
+                                    <div class="text">
+                                        <h4>Samsa was a travelling salesman and above it there hung a picture that he had recently cut out of an illustrated magazine</h4>
+                                        <p>Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather</p>
                                     </div>
-                                    <h3>Helth protected</h3>
-                                    <p>Window at the dull weather</p>
+                                    <div class="pdf-dwn-area">
+                                        <a href="#">
+                                            <i class="ti-receipt"></i>
+                                            <h5>General Insurance Conditions</h5>
+                                            <p>Document size: 34kb</p>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="grid">
-                                    <div class="icon">
-                                        <i class="fi flaticon-cost"></i>
+                                <div class="features-grid clearfix">
+                                    <div class="grid">
+                                        <div class="icon">
+                                            <i class="fi flaticon-house"></i>
+                                        </div>
+                                        <h3>House protected</h3>
+                                        <p>Window at the dull weather</p>
                                     </div>
-                                    <h3>Small Premium</h3>
-                                    <p>Window at the dull weather</p>
+                                    <div class="grid">
+                                        <div class="icon">
+                                            <i class="fi flaticon-umbrella-1"></i>
+                                        </div>
+                                        <h3>Helth protected</h3>
+                                        <p>Window at the dull weather</p>
+                                    </div>
+                                    <div class="grid">
+                                        <div class="icon">
+                                            <i class="fi flaticon-cost"></i>
+                                        </div>
+                                        <h3>Small Premium</h3>
+                                        <p>Window at the dull weather</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="tab-pane fade" id="04">
-                            <div class="content-area clearfix">
-                                <div class="grid info-grid">
-                                    <h3>Health Insurance</h3>
-                                    <p>Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather</p>
-                                    <p><strong>Samsa was a travelling salesman and above it there hung a picture that he had recently cut out of an illustrated magazine</strong></p>
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td>Payment:</td>
-                                                <td>from $15.000 to $1.000.000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Grace Period:</td>
-                                                <td>up to 30 days</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Support:</td>
-                                                <td>24 hours</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Policy Modification:</td>
-                                                <td>Online</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Number of people:</td>
-                                                <td>Max 5</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Location:</td>
-                                                <td>Dubai</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="grid">
-                                    <img src="~/images/service-single/img-4.jpg" alt>
-                                </div>
-                            </div>
-                            <div class="bottom-info">
-                                <div class="text">
-                                    <h4>Samsa was a travelling salesman and above it there hung a picture that he had recently cut out of an illustrated magazine</h4>
-                                    <p>Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather</p>
-                                </div>
-                                <div class="pdf-dwn-area">
-                                    <a href="#">
-                                        <i class="ti-receipt"></i>
-                                        <h5>General Insurance Conditions</h5>
-                                        <p>Document size: 34kb</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="features-grid clearfix">
-                                <div class="grid">
-                                    <div class="icon">
-                                        <i class="fi flaticon-house"></i>
+                            <div class="tab-pane fade" id="06">
+                                <div class="content-area clearfix">
+                                    <div class="grid info-grid">
+                                        <h3>Life insurance</h3>
+                                        <p>Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather</p>
+                                        <p><strong>Samsa was a travelling salesman and above it there hung a picture that he had recently cut out of an illustrated magazine</strong></p>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Payment:</td>
+                                                    <td>from $15.000 to $1.000.000</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Grace Period:</td>
+                                                    <td>up to 30 days</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Support:</td>
+                                                    <td>24 hours</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Policy Modification:</td>
+                                                    <td>Online</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Number of people:</td>
+                                                    <td>Max 5</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Location:</td>
+                                                    <td>Dubai</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
-                                    <h3>House protected</h3>
-                                    <p>Window at the dull weather</p>
-                                </div>
-                                <div class="grid">
-                                    <div class="icon">
-                                        <i class="fi flaticon-umbrella-1"></i>
+                                    <div class="grid">
+                                        <img src="~/images/service-single/img-1.jpg" alt>
                                     </div>
-                                    <h3>Helth protected</h3>
-                                    <p>Window at the dull weather</p>
                                 </div>
-                                <div class="grid">
-                                    <div class="icon">
-                                        <i class="fi flaticon-cost"></i>
+                                <div class="bottom-info">
+                                    <div class="text">
+                                        <h4>Samsa was a travelling salesman and above it there hung a picture that he had recently cut out of an illustrated magazine</h4>
+                                        <p>Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather</p>
                                     </div>
-                                    <h3>Small Premium</h3>
-                                    <p>Window at the dull weather</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="05">
-                            <div class="content-area clearfix">
-                                <div class="grid info-grid">
-                                    <h3>Investment plan</h3>
-                                    <p>Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather</p>
-                                    <p><strong>Samsa was a travelling salesman and above it there hung a picture that he had recently cut out of an illustrated magazine</strong></p>
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td>Payment:</td>
-                                                <td>from $15.000 to $1.000.000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Grace Period:</td>
-                                                <td>up to 30 days</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Support:</td>
-                                                <td>24 hours</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Policy Modification:</td>
-                                                <td>Online</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Number of people:</td>
-                                                <td>Max 5</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Location:</td>
-                                                <td>Dubai</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="grid">
-                                    <img src="~/images/service-single/img-5.jpg" alt>
-                                </div>
-                            </div>
-                            <div class="bottom-info">
-                                <div class="text">
-                                    <h4>Samsa was a travelling salesman and above it there hung a picture that he had recently cut out of an illustrated magazine</h4>
-                                    <p>Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather</p>
-                                </div>
-                                <div class="pdf-dwn-area">
-                                    <a href="#">
-                                        <i class="ti-receipt"></i>
-                                        <h5>General Insurance Conditions</h5>
-                                        <p>Document size: 34kb</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="features-grid clearfix">
-                                <div class="grid">
-                                    <div class="icon">
-                                        <i class="fi flaticon-house"></i>
+                                    <div class="pdf-dwn-area">
+                                        <a href="#">
+                                            <i class="ti-receipt"></i>
+                                            <h5>General Insurance Conditions</h5>
+                                            <p>Document size: 34kb</p>
+                                        </a>
                                     </div>
-                                    <h3>House protected</h3>
-                                    <p>Window at the dull weather</p>
                                 </div>
-                                <div class="grid">
-                                    <div class="icon">
-                                        <i class="fi flaticon-umbrella-1"></i>
+                                <div class="features-grid clearfix">
+                                    <div class="grid">
+                                        <div class="icon">
+                                            <i class="fi flaticon-house"></i>
+                                        </div>
+                                        <h3>House protected</h3>
+                                        <p>Window at the dull weather</p>
                                     </div>
-                                    <h3>Helth protected</h3>
-                                    <p>Window at the dull weather</p>
-                                </div>
-                                <div class="grid">
-                                    <div class="icon">
-                                        <i class="fi flaticon-cost"></i>
+                                    <div class="grid">
+                                        <div class="icon">
+                                            <i class="fi flaticon-umbrella-1"></i>
+                                        </div>
+                                        <h3>Helth protected</h3>
+                                        <p>Window at the dull weather</p>
                                     </div>
-                                    <h3>Small Premium</h3>
-                                    <p>Window at the dull weather</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="06">
-                            <div class="content-area clearfix">
-                                <div class="grid info-grid">
-                                    <h3>Life insurance</h3>
-                                    <p>Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather</p>
-                                    <p><strong>Samsa was a travelling salesman and above it there hung a picture that he had recently cut out of an illustrated magazine</strong></p>
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td>Payment:</td>
-                                                <td>from $15.000 to $1.000.000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Grace Period:</td>
-                                                <td>up to 30 days</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Support:</td>
-                                                <td>24 hours</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Policy Modification:</td>
-                                                <td>Online</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Number of people:</td>
-                                                <td>Max 5</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Location:</td>
-                                                <td>Dubai</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="grid">
-                                    <img src="~/images/service-single/img-1.jpg" alt>
-                                </div>
-                            </div>
-                            <div class="bottom-info">
-                                <div class="text">
-                                    <h4>Samsa was a travelling salesman and above it there hung a picture that he had recently cut out of an illustrated magazine</h4>
-                                    <p>Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather</p>
-                                </div>
-                                <div class="pdf-dwn-area">
-                                    <a href="#">
-                                        <i class="ti-receipt"></i>
-                                        <h5>General Insurance Conditions</h5>
-                                        <p>Document size: 34kb</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="features-grid clearfix">
-                                <div class="grid">
-                                    <div class="icon">
-                                        <i class="fi flaticon-house"></i>
+                                    <div class="grid">
+                                        <div class="icon">
+                                            <i class="fi flaticon-cost"></i>
+                                        </div>
+                                        <h3>Small Premium</h3>
+                                        <p>Window at the dull weather</p>
                                     </div>
-                                    <h3>House protected</h3>
-                                    <p>Window at the dull weather</p>
                                 </div>
-                                <div class="grid">
-                                    <div class="icon">
-                                        <i class="fi flaticon-umbrella-1"></i>
-                                    </div>
-                                    <h3>Helth protected</h3>
-                                    <p>Window at the dull weather</p>
-                                </div>
-                                <div class="grid">
-                                    <div class="icon">
-                                        <i class="fi flaticon-cost"></i>
-                                    </div>
-                                    <h3>Small Premium</h3>
-                                    <p>Window at the dull weather</p>
-                                </div>
-                            </div>
-                        </div>*@
+                            </div>*@
                     </div>
                 </div>
             </div>
@@ -564,42 +564,46 @@
             <div class="col-lg-8">
                 <div class="testimonials-slider-holder">
                     <div class="testimonials-slider-s2">
-                        <div class="testimonials-slider-item">
-                            <div class="grid">
-                                <p>Recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer</p>
-                                <div class="quoter">
-                                    <h4>Mr. Bang</h4>
-                                    <span>Life insurance holder</span>
+                        @foreach (var item in Model.Testimonials)
+                        {
+                            <div class="testimonials-slider-item">
+                                <div class="grid">
+                                    <p>@item.Review</p>
+                                    <div class="quoter">
+                                        <h4>@item.Name</h4>
+                                        <span>@item.WorkExperience</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="testimonials-slider-item">
-                            <div class="grid">
-                                <p>Recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer</p>
-                                <div class="quoter">
-                                    <h4>Mr. Bang</h4>
-                                    <span>Life insurance holder</span>
+
+                        }
+                        @*<div class="testimonials-slider-item">
+                                <div class="grid">
+                                    <p>Recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer</p>
+                                    <div class="quoter">
+                                        <h4>Mr. Bang</h4>
+                                        <span>Life insurance holder</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="testimonials-slider-item">
-                            <div class="grid">
-                                <p>Recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer</p>
-                                <div class="quoter">
-                                    <h4>Mr. Bang</h4>
-                                    <span>Life insurance holder</span>
+                            <div class="testimonials-slider-item">
+                                <div class="grid">
+                                    <p>Recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer</p>
+                                    <div class="quoter">
+                                        <h4>Mr. Bang</h4>
+                                        <span>Life insurance holder</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="testimonials-slider-item">
-                            <div class="grid">
-                                <p>Recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer</p>
-                                <div class="quoter">
-                                    <h4>Mr. Bang</h4>
-                                    <span>Life insurance holder</span>
+                            <div class="testimonials-slider-item">
+                                <div class="grid">
+                                    <p>Recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer</p>
+                                    <div class="quoter">
+                                        <h4>Mr. Bang</h4>
+                                        <span>Life insurance holder</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
+                            </div>*@
                     </div>
                 </div>
             </div>
@@ -607,4 +611,3 @@
     </div> <!-- end container -->
 </section>
 <!-- end testimonials-section-s2 -->
-

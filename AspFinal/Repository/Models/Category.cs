@@ -19,6 +19,7 @@ namespace Repository.Models
         [MaxLength(50)]
         public string Logo { get; set; }
         public string Image { get; set; }
+        public IEnumerable<Agent> Agents { get; set; }
         public IEnumerable<CategorySpecs> CategorySpecs { get; set; }
     }
 }
