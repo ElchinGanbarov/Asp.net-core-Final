@@ -1,4 +1,4 @@
-﻿@model HomeViewModel
+﻿
 @{
     ViewData["Title"] = "Jotex - Insurance HTML Template";
 }
@@ -25,6 +25,8 @@
     <link href="~/css/odometer-theme-default.css" rel="stylesheet">
     <link href="~/css/jquery.fancybox.css" rel="stylesheet">
     <link href="~/css/style.css" asp-append-version="true" rel="stylesheet">
+    <link href="~/lib/jquery-toast-plugin/jquery.toast.min.css" rel="stylesheet" />
+
     @RenderSection("Head", required: false)
 
 
@@ -57,8 +59,8 @@
                         <div class="col col-md-8">
                             <div class="info">
                                 <ul>
-                                    <li><i class="ti-location-pin"></i>@Model.Settings.Adress</li>
-                                    <li><i class="ti-timer"></i>@Model.Settings.WorkTime</li>
+                                    <li><i class="ti-location-pin"></i> 22/1 Rokon uddin sorok mistripara, Austr</li>
+                                    <li><i class="ti-timer"></i> Mon - Sun 9.00am - 5 pm</li>
                                 </ul>
                             </div>
                         </div>
@@ -93,7 +95,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="index.html"><img src="~/images/@Model.Settings.Logo" alt="@Model.Settings.Logo"></a>
+                        <a class="navbar-brand" href="index.html"><img src="~/images/logo.png" alt></a>
                     </div>
                     <div id="navbar" class="navbar-collapse collapse navbar-left navigation-holder">
                         <div class="left-separator"></div>
@@ -108,9 +110,9 @@
                             <li class="menu-item-has-children">
                                 <a href="#">Pages</a>
                                 <ul class="sub-menu">
-                                    <li><a  asp-controller="pages" asp-action="about">About us</a></li>
-                                    <li><a  asp-controller="pages" asp-action="faq">FAQ</a></li>
-                                    <li><a  asp-controller="pages" asp-action="error404">404</a></li>
+                                    <li><a asp-controller="pages" asp-action="about">About us</a></li>
+                                    <li><a asp-controller="pages" asp-action="faq">FAQ</a></li>
+                                    <li><a asp-controller="pages" asp-action="error404">404</a></li>
                                 </ul>
                             </li>
                             <li class="menu-item-has-children">
@@ -152,7 +154,7 @@
                             <a href="#">
                                 <i class="fi flaticon-feedback"></i>
                                 <h5>Have any query?</h5>
-                                <span>++@Model.Settings.Phone</span>
+                                <span>++8891682000000</span>
                             </a>
                         </div>
                         <div class="header-search-area">
@@ -307,6 +309,8 @@
     <!-- Custom script for this template -->
     <script src="~/js/script.js"></script>
     <script src="~/js/main.js"></script>
+    <script src="~/lib/jquery-toast-plugin/jquery.toast.min.js"></script>
+
 
 
     @RenderSection("Scripts", required: false)

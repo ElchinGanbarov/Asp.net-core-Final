@@ -1,4 +1,5 @@
-﻿ <!-- start page-title -->
+﻿ @model AspFinal.Models.Blogs.BlogViewModel
+    <!-- start page-title -->
 <section class="page-title">
     <div class="page-title-container">
         <div class="page-title-wrapper">
@@ -189,17 +190,29 @@
 
                         <div class="comment-respond">
                             <h3 class="comment-reply-title">Add your comment</h3>
-                            <form method="post" id="commentform" class="comment-form">
-                                <div class="form-textarea">
-                                    <textarea id="comment" placeholder="Write Your Comments..."></textarea>
+                            <form method="post" asp-action="contact" >
+                                <div class="form-group">
+                                    <div class="form-textarea">
+                                        <textarea asp-for="Contact.Text" placeholder="Write Your Comments..."></textarea>
+                                        <span asp-validation-for="Contact.Text" class="text-danger"></span>
+                                    </div>
                                 </div>
                                 <div class="form-inputs">
-                                    <input placeholder="Website" type="url">
-                                    <input placeholder="Name" type="text">
-                                    <input placeholder="Email" type="email">
+                                    <div class="form-group">
+                                        <input asp-for="Contact.Website" class="form-control" placeholder="Website">
+                                        <span asp-validation-for="Contact.Website" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <input asp-for="Contact.Name" class="form-control" placeholder="Name">
+                                        <span asp-validation-for="Contact.Name" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <input asp-for="Contact.Email" class="form-control" placeholder="Email">
+                                        <span asp-validation-for="Contact.Email" class="text-danger"></span>
+                                    </div>
                                 </div>
                                 <div class="form-submit">
-                                    <input id="submit" value="Post Comment" type="submit">
+                                    <input value="Post Comment" class="thema"  type="submit">
                                 </div>
                             </form>
                         </div>
@@ -235,26 +248,34 @@
                     <div class="widget category-widget">
                         <h3>Categories</h3>
                         <ul>
-                            <li><a href="#">Life Insurance <span>(2)</span></a></li>
-                            <li><a href="#">Home Insurance <span>(5)</span></a></li>
+                            @foreach (var item in Model.Categories)
+                            {
+                                <li><a href="#">@item.Name <span>(@item.Count)</span></a></li>
+                            }
+
+                            @*<li><a href="#">Home Insurance <span>(5)</span></a></li>
                             <li><a href="#">Health Insurance <span>(12)</span></a></li>
                             <li><a href="#">Property insurance  <span>(5)</span></a></li>
-                            <li><a href="#">Fire Insurance <span>(8)</span></a></li>
+                            <li><a href="#">Fire Insurance <span>(8)</span></a></li>*@
                         </ul>
                     </div>
                     <div class="widget recent-post-widget">
                         <h3>Recent post</h3>
                         <div class="posts">
-                            <div class="post">
-                                <div class="img-holder">
-                                    <img src="~/images/recent-posts/img-1.jpg" alt>
+                            @foreach (var item in Model.Posts)
+                            {
+                                <div class="post">
+                                    <div class="img-holder">
+                                        <img src="~/images/recent-posts/@item.Image" alt="@item.Image">
+                                    </div>
+                                    <div class="details">
+                                        <h4><a href="#">@item.Title</a></h4>
+                                        <span class="date">@item.DateTime</span>
+                                    </div>
                                 </div>
-                                <div class="details">
-                                    <h4><a href="#">For your insurance business, employees, or clients</a></h4>
-                                    <span class="date">11 March 2020</span>
-                                </div>
-                            </div>
-                            <div class="post">
+                            }
+
+                            @*<div class="post">
                                 <div class="img-holder">
                                     <img src="~/images/recent-posts/img-2.jpg" alt>
                                 </div>
@@ -271,18 +292,22 @@
                                     <h4><a href="#">Be prepared for life’s Once you’ve picked your vorite</a></h4>
                                     <span class="date">11 March 2020</span>
                                 </div>
-                            </div>
+                            </div>*@
                         </div>
                     </div>
                     <div class="widget tag-widget">
                         <h3>Tags</h3>
                         <ul>
-                            <li><a href="#">People</a></li>
-                            <li><a href="#">Business</a></li>
+                            @foreach (var item in Model.Tags)
+                            {
+                                <li><a href="#">@item.Name</a></li>
+
+                            }
+                            @*<li><a href="#">Business</a></li>
                             <li><a href="#">Life insurance</a></li>
                             <li><a href="#">Poll insurance</a></li>
                             <li><a href="#">Car insurance</a></li>
-                            <li><a href="#">Manfacturing</a></li>
+                            <li><a href="#">Manfacturing</a></li>*@
                         </ul>
                     </div>
                     <div class="widget ad-widget">
@@ -297,3 +322,55 @@
     </div> <!-- end container -->
 </section>
 <!-- end blog-single-section -->
+@section Scripts{ 
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+<script>
+    $(document).on("click", ".thema", function (e) {
+        let Contact_Text=$("#Contact_Text")
+        let element = $(".comments");
+        let time = new Date('');
+        
+             $.ajax({
+                 url: $(this).attr("href"),
+                 type: 'get',
+                 dataType: "html",
+                 success: function (res) {
+                     element.append(` <li class="comment">
+                                    <div>
+                                        <div class="comment-theme">
+                                            <div class="comment-image"><img src="~/images/blog-details/comments-author/img-4.jpg" alt></div>
+                                        </div>
+                                        <div class="comment-main-area">
+                                            <div class="comment-wrapper">
+                                                <div class="comments-meta">
+                                                    <h4>Jhon <span class="comments-date">says ${time}</span></h4>
+                                                </div>
+                                                <div class="comment-area">
+                                                    <p>${Contact_Text.val()}</p>
+                                                    <div class="comments-reply">
+                                                        <a class="comment-reply-link" href="#"><span>Reply</span></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>`)
+                $.toast({
+                    heading: 'Məlumat',
+                    text: "Commentiniz baziya elave edildi",
+                    icon: 'success',
+                    loader: true,
+                    bgColor: '#3988ff',
+                    loaderBg: '#f7d40d',
+                    position: 'bottom-right',
+                });
+
+
+            }
+        });
+    });
+
+</script>
+}

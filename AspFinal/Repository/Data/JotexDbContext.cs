@@ -17,7 +17,7 @@ namespace Repository.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Comments> Comments { get; set; }
         public DbSet<Contact> Contacts { get; set; }
-        public DbSet<ContactUs> ContactUs { get; set; }
+        public DbSet<ContactUss> ContactUs { get; set; }
         public DbSet<HomeSlider> HomeSliders { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Tags> Tags { get; set; }

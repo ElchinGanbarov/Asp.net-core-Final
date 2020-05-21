@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200521110013_ContactU.cs" />
+    <Compile Remove="Migrations\20200521110013_ContactU.Designer.cs" />
+    <Compile Remove="Migrations\20200521110522_asd.cs" />
+    <Compile Remove="Migrations\20200521110522_asd.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CryptoHelper" Version="3.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.4" />

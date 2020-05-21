@@ -493,7 +493,7 @@ namespace Repository.Migrations
                     b.ToTable("Contacts");
                 });
 
-            modelBuilder.Entity("Repository.Models.ContactUs", b =>
+            modelBuilder.Entity("Repository.Models.ContactUss", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -506,11 +506,6 @@ namespace Repository.Migrations
 
                     b.Property<DateTime>("AddedDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
 
                     b.Property<string>("Key")
                         .IsRequired()

@@ -1,4 +1,6 @@
 ﻿using AspFinal.Models;
+using AspFinal.Models.Blogs;
+using AspFinal.Models.Contact;
 using AutoMapper;
 using Repository.Models;
 using System;
@@ -13,6 +15,9 @@ namespace AspFinal.Mapping
         public MappingProfile()
         {
             CreateMap<HomeSlider, HomeSliderViewModel>();
+            CreateMap<ContactViewModel, Contact>();
+            CreateMap<CommentViewModel, Comments>();
+
         }
     }
 }

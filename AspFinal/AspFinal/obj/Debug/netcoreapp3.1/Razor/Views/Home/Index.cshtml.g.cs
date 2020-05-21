@@ -33,8 +33,15 @@ using Repository.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\Admin\Desktop\Asp.net-core-Final\AspFinal\AspFinal\Views\_ViewImports.cshtml"
+using AspFinal.Models.Contact;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"965c3fd4222faeed36772dd2f1f04fc66e1b0b6f", @"/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7f926cd9bc1bf2f9e3293e56008c61169986f602", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"fa60d09bad2eec4065c9b0f727430f73ef6293c7", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<HomeViewModel>
     {
         private global::AspNetCore.Views_Home_Index.__Generated__HomeSliderViewComponentTagHelper __HomeSliderViewComponentTagHelper;
@@ -87,7 +94,7 @@ using Repository.Models;
 
         <!--HOME SLIDER ITEM-->
         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("vc:home-slider", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "965c3fd4222faeed36772dd2f1f04fc66e1b0b6f4779", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("vc:home-slider", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "965c3fd4222faeed36772dd2f1f04fc66e1b0b6f4977", async() => {
             }
             );
             __HomeSliderViewComponentTagHelper = CreateTagHelper<global::AspNetCore.Views_Home_Index.__Generated__HomeSliderViewComponentTagHelper>();
@@ -222,7 +229,7 @@ WriteAttributeValue("", 2231, item.Logo, 2231, 10, false);
 #line hidden
 #nullable disable
             WriteLiteral("</p>\r\n                            <a href=\"#\" class=\"theme-btn\">More about us</a>\r\n                        </div>\r\n                        <div class=\"img-holder\">\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "965c3fd4222faeed36772dd2f1f04fc66e1b0b6f11130", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "965c3fd4222faeed36772dd2f1f04fc66e1b0b6f11328", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -360,7 +367,7 @@ WriteAttributeValue("", 5523, item.Logo, 5523, 10, false);
                 <div class=""video-area"">
                     <div class=""img-holder"">
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "965c3fd4222faeed36772dd2f1f04fc66e1b0b6f17521", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "965c3fd4222faeed36772dd2f1f04fc66e1b0b6f17719", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -507,7 +514,7 @@ AddHtmlAttributeValue("", 8262, Model.LikeableAreas.ElementAt(0).Photo, 8262, 39
                         </div>
                         <div class=""img-holder"">
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "965c3fd4222faeed36772dd2f1f04fc66e1b0b6f25070", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "965c3fd4222faeed36772dd2f1f04fc66e1b0b6f25268", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -609,7 +616,7 @@ AddHtmlAttributeValue("", 8262, Model.LikeableAreas.ElementAt(0).Photo, 8262, 39
                         <div class=""blog-post-w-media post"">
                             <div class=""entry-media"">
                                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "965c3fd4222faeed36772dd2f1f04fc66e1b0b6f29746", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "965c3fd4222faeed36772dd2f1f04fc66e1b0b6f29944", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

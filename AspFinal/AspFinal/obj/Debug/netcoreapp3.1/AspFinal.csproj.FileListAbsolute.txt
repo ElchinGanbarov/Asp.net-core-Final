@@ -312,3 +312,4 @@ C:\Users\Admin\Desktop\Asp.net-core-Final\AspFinal\AspFinal\obj\Debug\netcoreapp
 C:\Users\Admin\Desktop\Asp.net-core-Final\AspFinal\AspFinal\obj\Debug\netcoreapp3.1\AspFinal.dll
 C:\Users\Admin\Desktop\Asp.net-core-Final\AspFinal\AspFinal\obj\Debug\netcoreapp3.1\AspFinal.pdb
 C:\Users\Admin\Desktop\Asp.net-core-Final\AspFinal\AspFinal\obj\Debug\netcoreapp3.1\AspFinal.genruntimeconfig.cache
+C:\Users\Admin\Desktop\Asp.net-core-Final\AspFinal\AspFinal\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Comment\_Comment.cshtml.g.cs

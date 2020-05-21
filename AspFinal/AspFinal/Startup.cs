@@ -36,7 +36,7 @@ namespace AspFinal
                                                             x => x.MigrationsAssembly("Repository")));
 
             services.AddTransient<IHomeRepository, HomeRepository>();
-            services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<ICategoryyRepository, CategoryyRepository>();
 
         }
 

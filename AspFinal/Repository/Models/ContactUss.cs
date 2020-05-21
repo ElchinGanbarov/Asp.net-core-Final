@@ -1,13 +1,11 @@
-﻿using Repository.Enum;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Repository.Models
 {
-    public class ContactUs:BaseEntity
-    {
+   public class ContactUss:BaseEntity    {
         [Required]
         [MaxLength(50)]
         public string Title { get; set; }
@@ -23,9 +21,5 @@ namespace Repository.Models
         [Required]
         [MaxLength(50)]
         public string Logo { get; set; }
-        [Required]
-        [MaxLength(50)]
-        public string  Image { get; set; }
-
     }
 }

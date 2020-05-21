@@ -1,4 +1,4 @@
-﻿@model HomeViewModel
+﻿@model DetailViewModel
 <!-- start page-title -->
 <section class="page-title">
     <div class="page-title-container">
@@ -25,18 +25,22 @@
             <div class="col col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
                 <div class="section-title-s4">
                     <span>Contact with us</span>
-                    <h2>Lets get in touch!</h2>
-                    <p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nuncIt showed a lady fitted out</p>
+                    <h2>@Model.ContactUs.ElementAt(0).Title</h2>
+                    <p>@Model.ContactUs.ElementAt(0).Text</p>
                 </div>
             </div>
             <div class="col col-xs-12">
                 <div class="contact-info-grids">
-                    <div class="grid">
-                        <i class="fi flaticon-house"></i>
-                        <h4>Head Office</h4>
-                        <p>32 bejory soroni road  niceh Melborn Austria</p>
-                    </div>
-                    <div class="grid">
+                    @foreach (var item in Model.ContactUs)
+                    {
+                        <div class="grid">
+                            <i class="@item.Logo"></i>
+                            <h4>@item.Key</h4>
+                            <p>@Html.Raw(item.Value)</p>
+                        </div>
+                    }
+
+                    @*<div class="grid">
                         <i class="fi flaticon-email"></i>
                         <h4>Email Address</h4>
                         <p>demo@example.com <br>example@g.com</p>
@@ -50,7 +54,7 @@
                         <i class="fi flaticon-alarm"></i>
                         <h4>Opening Hours</h4>
                         <p>Mon day - Sun day  <br>10Am - 5PM</p>
-                    </div>
+                    </div>*@
                 </div>
             </div>
         </div>
@@ -65,37 +69,48 @@
                 </div>
                 <div class="col col-md-8">
                     <div class="contact-form">
-                        <form method="post" class="contact-validation-active" id="contact-form-main">
-                            <div>
-                                <input type="text" class="form-control" name="name" id="name" placeholder="Name*">
+                      
+                        <form method="post" asp-controller="pages" asp-action="comment" class="theme contact-validation-active" >
+                            <div class="form-group">
+                                <input asp-for="Comment.Name" class="form-control" placeholder="Name*">
+                                <span asp-validation-for="Comment.Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input asp-for="Comment.Email" class="form-control" placeholder="Email*">
+                                <span asp-validation-for="Comment.Email" class="text-danger"></span>
+
+                            </div>
+                            <div class="form-group">
+                                <input asp-for="Comment.Phone" class="form-control" placeholder="Phone*">
+                                <span asp-validation-for="Comment.Phone" class="text-danger"></span>
+
                             </div>
                             <div>
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Email*">
-                            </div>
-                            <div>
-                                <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone*">
-                            </div>
-                            <div>
-                                <select name="subject" class="form-control">
+                                <select asp-for="Comment.Contactsubject" class="form-control">
+
                                     <option disabled="disabled" selected>Contact subject</option>
                                     <option>Subject 1</option>
                                     <option>Subject 2</option>
                                     <option>Subject 3</option>
                                 </select>
+                                <span asp-validation-for="Comment.Contactsubject" class="text-danger"></span>
+
                             </div>
                             <div class="fullwidth">
-                                <textarea class="form-control" name="note" id="note" placeholder="Case Description..."></textarea>
+                                <textarea asp-for="Comment.Description" class="form-control" placeholder="Case Description..."></textarea>
+                                <span asp-validation-for="Comment.Description" class="text-danger"></span>
+
                             </div>
                             <div class="submit-area">
-                                <button type="submit" class="theme-btn">Submit It Now</button>
+                                <button type="submit" class=" theme-btn">Submit It Now</button>
                                 <div id="loader">
                                     <i class="ti-reload"></i>
                                 </div>
                             </div>
-                            <div class="clearfix error-handling-messages">
+                            @*<div class="clearfix error-handling-messages">
                                 <div id="success">Thank you</div>
                                 <div id="error"> Error occurred while sending email. Please try again later. </div>
-                            </div>
+                            </div>*@
                         </form>
                     </div>
                 </div>
@@ -112,3 +127,35 @@
     </div>
 </section>
 <!-- end contact-map -->
+@section Scripts{ 
+
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+
+
+<script>
+    $(document).on("submit", ".theme", function (e) {
+        $.ajax({
+            url: $(this).attr("href"),
+        	type: "get",
+            success: function (res) {
+                console.log("test");
+              
+                    $.toast({
+                        heading: 'Məlumat',
+                        text: "Elaqe baziya elave edildi",
+                        icon: 'success',
+                        loader: true,
+                        bgColor: '#3988ff',
+                        loaderBg: '#f7d40d',
+                        position: 'bottom-right',
+                    });
+              
+        	
+        	}
+        });
+    });
+
+</script>
+}

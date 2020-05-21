@@ -33,8 +33,15 @@ using Repository.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\Admin\Desktop\Asp.net-core-Final\AspFinal\AspFinal\Views\_ViewImports.cshtml"
+using AspFinal.Models.Contact;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"20467ac8542736b3ea381c75be3edb7e58666aa9", @"/Views/Shared/Components/HomeSlider/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7f926cd9bc1bf2f9e3293e56008c61169986f602", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"fa60d09bad2eec4065c9b0f727430f73ef6293c7", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Components_HomeSlider_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<HomeSliderViewModel>>
     {
         #pragma warning disable 1998

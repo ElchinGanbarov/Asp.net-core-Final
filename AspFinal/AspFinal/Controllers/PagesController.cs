@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AspFinal.Models;
+using AspFinal.Models.Contact;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Repository.Repository.CategoryRepository;
+using Repository.Models;
 using Repository.Repository.HomeRepository;
 
 namespace AspFinal.Controllers
@@ -12,8 +14,10 @@ namespace AspFinal.Controllers
     public class PagesController : Controller
     {
         private readonly IHomeRepository _homeRepository;
-        public PagesController(IHomeRepository homeRepository)
+        private readonly IMapper _mapper;
+        public PagesController(IHomeRepository homeRepository,IMapper mapper)
         {
+            _mapper = mapper;
             _homeRepository = homeRepository;
         }
         public IActionResult About()
@@ -31,12 +35,8 @@ namespace AspFinal.Controllers
         }
         public IActionResult FAQ()
         {
-            var model = new HomeViewModel
-            {
-                Categories = _homeRepository.GetCategories(),
-                Settings = _homeRepository.GetSettings()
-            };
-            return View(model);
+         
+            return View();
         }
         public IActionResult ServiceSingle()
         {
@@ -48,23 +48,38 @@ namespace AspFinal.Controllers
             };
             return View(model);
         }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
         public IActionResult Contact()
         {
-            var model = new HomeViewModel
+            var model = new DetailViewModel
             {
-                Categories = _homeRepository.GetCategories(),
-                Settings = _homeRepository.GetSettings()
+                ContactUs = _homeRepository.GetContactUs()
             };
+
             return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Comment(ContactViewModel comment)
+        {
+            if (ModelState.IsValid)
+            {
+                var home = _mapper.Map<ContactViewModel, Contact>(comment);
+                _homeRepository.CreateComment(home);
+                return RedirectToAction(/*"~/Views/Shared/Comment/_Comment.cshtml"*/ "index","home");
+            }
+
+
+            return View("~/Views/Pages/Contact.cshtml", new DetailViewModel
+            {
+                Comment = comment
+            });
         }
         public IActionResult Error404()
         {
-            var model = new HomeViewModel
-            {
-                Categories = _homeRepository.GetCategories(),
-                Settings = _homeRepository.GetSettings()
-            };
-            return View(model);
+        
+            return View();
         }
     }
 }

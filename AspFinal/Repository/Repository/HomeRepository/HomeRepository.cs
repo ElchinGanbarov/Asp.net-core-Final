@@ -20,7 +20,8 @@ namespace Repository.Repository.HomeRepository
         IEnumerable<Testimonial> GetTestimonials();
         IEnumerable<Blog> GetBlogs();
         IEnumerable<Agent> GetCaseAgent();
-
+        Contact CreateComment(Contact home);
+        IEnumerable<ContactUss> GetContactUs();
     }
     public class HomeRepository : IHomeRepository
     {
@@ -28,6 +29,16 @@ namespace Repository.Repository.HomeRepository
         public HomeRepository(JotexDbContext context)
         {
             _context = context;
+        }
+
+        public Contact CreateComment(Contact home)
+        {
+            home.AddedBy = "System";
+            home.Status = true;
+            home.AddedDate = DateTime.Now;
+            _context.Contacts.Add(home);
+            _context.SaveChanges();
+            return home;
         }
 
         public IEnumerable<AboutUs> GetAboutUs()
@@ -58,6 +69,11 @@ namespace Repository.Repository.HomeRepository
         public IEnumerable<Category> GetCategories()
         {
             return _context.Categories.Where(c => c.Status).Include(c => c.CategorySpecs).ToList();
+        }
+
+        public IEnumerable<ContactUss> GetContactUs()
+        {
+            return _context.ContactUs.Where(c => c.Status).ToList();
         }
 
         public IEnumerable<HomeSlider> GetHomeSliders()
