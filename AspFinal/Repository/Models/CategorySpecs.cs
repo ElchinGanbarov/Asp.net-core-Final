@@ -8,13 +8,15 @@ namespace Repository.Models
 {
     public class CategorySpecs:BaseEntity
     {
+        [Required(ErrorMessage ="Sirasini daxil edin...")]
         public int OrderBy { get; set; }
-        [Required]
+        [Required(ErrorMessage ="Acar sozu daxil edin...")]
         [MaxLength(100)]
         public string Key { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Acar sozu daxil edin...")]
         [MaxLength(100)]
         public string Value { get; set; }
+        [Required(ErrorMessage ="Servisini secin...")]
         public int CategoryId { get; set; }
         public Category Category { get; set; }
     }

@@ -10,8 +10,6 @@ namespace Repository.Models
         [Required]
         [MaxLength(100)]
         public string Logo { get; set; }
-        [Required]
-        [MaxLength(100)]
         public string CoverImage { get; set; }
         [Required]
         [MaxLength(50)]

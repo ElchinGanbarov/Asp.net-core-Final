@@ -10,8 +10,6 @@ namespace Repository.Models
         [Required]
         [MaxLength(50)]
         public string Name { get; set; }
-        [Required]
-        [MaxLength(50)]
         public string Image { get; set; }
         [Required]
         [MaxLength(50)]

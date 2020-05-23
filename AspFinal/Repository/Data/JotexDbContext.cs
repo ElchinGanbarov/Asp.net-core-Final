@@ -30,6 +30,8 @@ namespace Repository.Data
         public DbSet<LikeableArea> LikeableAreas { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<BlogText> BlogTexts { get; set; }
+        public DbSet<Admin> Admins { get; set; }
+
 
 
 

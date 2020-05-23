@@ -1,0 +1,82 @@
+﻿@model AspFinal.Areas.Admin.Models.Services.CategoryViewModel
+@{
+    ViewData["Title"] = "Yeni Şöbə";
+}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Yeni Servis</h1>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Vəziyyəti</label>
+                    <div class="custom-control custom-radio custom-control-inline ml-3">
+                        <input type="radio" id="Status" value="true" name="Status" class="custom-control-input">
+                        <label class="custom-control-label" for="Status">Aktiv</label>
+                        <span class="field-validation-valid text-danger" asp-validation-for="Status"></span>
+
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="StatusFal" value="false" name="Status" class="custom-control-input">
+                        <label class="custom-control-label" for="StatusFal">Passiv</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name">Servis Adi</label>
+                    <input class="form-control form-control-user slug-source" asp-for="Name">
+                    <span class="field-validation-valid text-danger" asp-validation-for="Name"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Count">Sayini daxil edin</label>
+                    <input class="form-control form-control-user slug-source" asp-for="Count" min="0">
+                    <span class="field-validation-valid text-danger" asp-validation-for="Count"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description">Text daxil edin</label>
+                    <textarea class="form-control form-control-user slug-source" asp-for="Description"></textarea>
+                    <span class="field-validation-valid text-danger" asp-validation-for="Description"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Logo">Logo adini daxil edin</label>
+                    <input class="form-control form-control-user slug-source" asp-for="Logo">
+                    <span class="field-validation-valid text-danger" asp-validation-for="Logo"></span>
+                </div>
+
+                <div class="custom-file">
+                    <label asp-for="Images" class="custom-file-label">Sekil secin</label>
+                    <input asp-for="Images" type="file" class="custom-file-input" aria-describedby="inputGroupFileAddon03">
+                    <span asp-validation-for="Images" class="text-danger"></span>
+                </div>
+                @*<div class="form-group gallery">
+            <label asp-for="Images" class="btn btn-secondary">şəkillər yüklə</label>
+            <input asp-for="Images" multiple="" class="d-none" accept="image/*">
+            <div class="photos"></div>
+        </div>*@
+                @*<div class="custom-file">
+            <label asp-for="files" class="custom-file-label" for="inputGroupFile03">Choose file</label>
+            <input asp-for="files" type="file" class="custom-file-input" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03">
+            <span asp-validation-for="files" class="text-danger"></span>
+        </div>*@
+                <div class="form-group d-flex justify-content-end mt-3">
+                    <button type="submit" class="btn btn-primary btn-icon-split">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                        <span class="text">Əlavə et</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->
+
+
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+}
+

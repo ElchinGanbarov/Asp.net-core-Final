@@ -18,10 +18,20 @@ namespace Repository.Repository.HomeRepository
         IEnumerable<Brand> GetBrands();
         IEnumerable<LikeableArea> GetLikeableAreas();
         IEnumerable<Testimonial> GetTestimonials();
+        IEnumerable<HomeSlider> GetFullHomeSlider();
         IEnumerable<Blog> GetBlogs();
         IEnumerable<Agent> GetCaseAgent();
         Contact CreateComment(Contact home);
         IEnumerable<ContactUss> GetContactUs();
+        IEnumerable<Agent> GetAllAgents();
+        HomeSlider CreateHomeSlider(HomeSlider homeslider);
+        HomeSlider GEtHomeSliderById(int id);
+        void UpdateSlide(HomeSlider updateslide, HomeSlider slide);
+        void DeleteSlide(HomeSlider slide);
+        Agent AddAgent(Agent agent);
+        Agent GetAgentById(int id);
+        void UpdateAgent(Agent updateAgent, Agent agent);
+        void RemoveAgent(Agent agent);
     }
     public class HomeRepository : IHomeRepository
     {
@@ -29,6 +39,13 @@ namespace Repository.Repository.HomeRepository
         public HomeRepository(JotexDbContext context)
         {
             _context = context;
+        }
+
+        public Agent AddAgent(Agent agent)
+        {
+            _context.Agents.Add(agent);
+            _context.SaveChanges();
+            return agent;
         }
 
         public Contact CreateComment(Contact home)
@@ -41,14 +58,39 @@ namespace Repository.Repository.HomeRepository
             return home;
         }
 
+        public HomeSlider CreateHomeSlider(HomeSlider homeslider)
+        {
+            _context.HomeSliders.Add(homeslider);
+            _context.SaveChanges();
+            return homeslider;
+        }
+
+        public void DeleteSlide(HomeSlider slide)
+        {
+             _context.HomeSliders.Remove(slide);
+            _context.SaveChanges();
+
+        }
+
         public IEnumerable<AboutUs> GetAboutUs()
         {
             return _context.AboutUs.Where(a => a.Status).Include(a => a.AboutDetails).ToList();
         }
 
+        public Agent GetAgentById(int id)
+        {
+            var agent = _context.Agents.Find(id);
+            return agent;
+        }
+
         public IEnumerable<Agent> GetAgents()
         {
             return _context.Agents.Where(a => a.Status).Include(a=>a.Category).ToList();
+        }
+
+        public IEnumerable<Agent> GetAllAgents()
+        {
+            return _context.Agents.Include(a=>a.Category).ToList();
         }
 
         public IEnumerable<Blog> GetBlogs()
@@ -76,6 +118,16 @@ namespace Repository.Repository.HomeRepository
             return _context.ContactUs.Where(c => c.Status).ToList();
         }
 
+        public IEnumerable<HomeSlider> GetFullHomeSlider()
+        {
+            return _context.HomeSliders.ToList();
+        }
+
+        public HomeSlider GEtHomeSliderById(int id)
+        {
+            return _context.HomeSliders.Find(id);
+        }
+
         public IEnumerable<HomeSlider> GetHomeSliders()
         {
             return _context.HomeSliders.Where(h => h.Status).OrderBy(h => h.OrderBy).ToList();
@@ -94,6 +146,34 @@ namespace Repository.Repository.HomeRepository
         public IEnumerable<Testimonial> GetTestimonials()
         {
             return _context.Testimonials.Where(t => t.Status).ToList();
+        }
+
+        public void RemoveAgent(Agent agent)
+        {
+            _context.Agents.Remove(agent);
+            _context.SaveChanges();
+        }
+
+        public void UpdateAgent(Agent updateAgent, Agent agent)
+        {
+            updateAgent.Status = agent.Status;
+            updateAgent.Name = agent.Name;
+            updateAgent.WorkExperience = agent.WorkExperience;
+            updateAgent.CategoryId = agent.CategoryId;
+            _context.SaveChanges();
+        }
+
+        public void UpdateSlide(HomeSlider updateslide, HomeSlider slide)
+        {
+            updateslide.Status = slide.Status;
+            updateslide.Slogan = slide.Slogan;
+            updateslide.ActionText = slide.ActionText;
+            updateslide.EndPoint = slide.EndPoint;
+            updateslide.Title = slide.Title;
+            updateslide.OrderBy = slide.OrderBy;
+            updateslide.Image = slide.Image;
+            _context.SaveChanges();
+
         }
     }
 }

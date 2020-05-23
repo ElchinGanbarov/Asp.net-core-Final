@@ -13,5 +13,7 @@ namespace AspFinal.Models.Blogs
         public IEnumerable<Category> Categories { get; set; }
         public IEnumerable<Post> Posts { get; set; }
         public IEnumerable<Tags> Tags { get; set; }
+        public IEnumerable<BlogText> BlogTexts { get; set; }
+
     }
 }

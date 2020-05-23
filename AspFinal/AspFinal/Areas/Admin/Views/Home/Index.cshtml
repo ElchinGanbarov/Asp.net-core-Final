@@ -1,0 +1,82 @@
+﻿@model IEnumerable<AspFinal.Areas.Admin.Models.HomeImages.SlideViewModel>
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Slidelarin Siyahisi</h6>
+        </div>
+        <div class="card-body">
+
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Basliq</th>
+                            <th>Veziyyeti</th>
+                            <th>Sirasi</th>
+                            <th>Metn</th>
+                            <th>Action text</th>
+                            <th>Url</th>
+                            <th>Image</th>
+
+                            <th>
+                                <a class="btn btn-info text-white" asp-controller="home" asp-action="create">Slide yarat</a>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Basliq</th>
+                            <th>Veziyyeti</th>
+                            <th>Sirasi</th>
+                            <th>Metn</th>
+                            <th>Action text</th>
+                            <th>Url</th>
+                            <th>Image</th>
+                        </tr>
+                    </tfoot>
+                    <tbody class="tbody">
+
+                        @foreach (var item in Model)
+                        {
+
+                        <tr class="item">
+                            <td>@item.Title</td>
+                            <td>@item.Status</td>
+                            <td>@item.OrderBy</td>
+                            <td>@item.Slogan</td>
+                            <td>@item.ActionText</td>
+                            <td>@item.EndPoint</td>
+                            @if (item.Image != null)
+                            {
+                                <td>
+                                    <img width="100" src="~/uploads/@item.Image" />
+
+                                </td>
+                            }
+                            else
+                            {
+                                <td>NULL</td>
+                            }
+                            <td style="width:14%">
+                                <a asp-action="remove" asp-route-id="@item.Id" class="btn btn-danger btn-circle deleteitem">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                                <a asp-action="edit" asp-route-id="@item.Id" class="btn btn-success btn-circle ml-3 ">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                            </td>
+                        </tr>
+
+
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->

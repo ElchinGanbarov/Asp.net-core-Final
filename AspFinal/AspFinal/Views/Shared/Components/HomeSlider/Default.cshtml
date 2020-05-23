@@ -5,7 +5,7 @@
     @foreach (var item in Model)
     {
         <div class="swiper-slide">
-            <div class="slide-inner slide-bg-image" data-background="images/slider/@item.Image">
+            <div class="slide-inner slide-bg-image" data-background="/uploads/@item.Image">
                 <div class="container">
                     <div data-swiper-parallax="300" class="slide-title">
                         <h2>@Html.Raw(item.Title)</h2>

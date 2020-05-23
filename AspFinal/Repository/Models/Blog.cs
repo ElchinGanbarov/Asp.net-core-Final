@@ -13,12 +13,10 @@ namespace Repository.Models
         [Required]
         [MaxLength(500)]
         public string Text { get; set; }
-        [Required]
-        [MaxLength(100)]
         public string Image { get; set; }
         [Required]
         [MaxLength(100)]
-        public string Experience { get; set; }
+        public string ConpanyName { get; set; }
         [Required]
         [MaxLength(100)]
         public string ActionText { get; set; }

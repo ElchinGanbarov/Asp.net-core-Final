@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Allaia.Libs;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -11,6 +12,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Repository.Data;
+using Repository.Repositories.AdminRepository;
+using Repository.Repository.BlogRepository;
 using Repository.Repository.CategoryRepository;
 using Repository.Repository.HomeRepository;
 
@@ -37,6 +40,12 @@ namespace AspFinal
 
             services.AddTransient<IHomeRepository, HomeRepository>();
             services.AddTransient<ICategoryyRepository, CategoryyRepository>();
+            services.AddTransient<IAdminRepository, AdminRepository>();
+            services.AddTransient<IFileManager, FileManager>();
+            services.AddTransient<IBlogRepository, BlogRepository>();
+
+
+
 
         }
 
@@ -62,6 +71,12 @@ namespace AspFinal
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllers();
+                endpoints.MapControllerRoute(
+                  name: "MyArea",
+                  pattern: "{area:exists}/{controller=Account}/{action=Login}/{id?}");
+
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
