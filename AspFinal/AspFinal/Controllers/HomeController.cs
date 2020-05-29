@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using AspFinal.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Repository.Repository.HomeRepository;
@@ -24,8 +25,7 @@ namespace AspFinal.Controllers
                 AboutUs = _homeRepository.GetAboutUs(),
                 Categories = _homeRepository.GetCategories(),
                 Settings = _homeRepository.GetSettings(),
-                LikeableAreas = _homeRepository.GetLikeableAreas(),
-                Testimonials = _homeRepository.GetTestimonials()
+                LikeableAreas = _homeRepository.GetLikeableAreas()
 
             };
             return View(model);

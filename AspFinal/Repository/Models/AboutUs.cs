@@ -17,6 +17,8 @@ namespace Repository.Models
         [MaxLength(50)]
         public string  Phone { get; set; }
         public string  Image { get; set; }
+        public IEnumerable<AboutClaim> AboutClaims { get; set; }
+        public IEnumerable<AboutPolicy> AboutPolicies { get; set; }
         public IEnumerable<AboutDetail> AboutDetails { get; set; }
     }
 }

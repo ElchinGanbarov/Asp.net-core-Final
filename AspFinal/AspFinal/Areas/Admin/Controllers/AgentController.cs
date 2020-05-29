@@ -105,7 +105,11 @@ namespace AspFinal.Areas.Admin.Controllers
         {
             var agent = _homeRepository.GetAgentById(id);
             _homeRepository.RemoveAgent(agent);
-            _fileManager.Delete(agent.Image);
+            if(agent.Image != null)
+            {
+                _fileManager.Delete(agent.Image);
+
+            }
             var agents = _homeRepository.GetAllAgents();
             var model = _mapper.Map<IEnumerable<Agent>, IEnumerable<AgentViewModel>>(agents);
             return PartialView("index", model);

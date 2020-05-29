@@ -98,7 +98,11 @@ namespace AspFinal.Areas.Admin.Controllers
         public IActionResult Remove(int id)
         {
             var slide = _homeRepository.GEtHomeSliderById(id);
-            _fileManager.Delete(slide.Image);
+            if(slide != null)
+            {
+                _fileManager.Delete(slide.Image);
+            }
+          
             _homeRepository.DeleteSlide(slide);
             var homeslider = _homeRepository.GetFullHomeSlider();
             var model = _mapper.Map<IEnumerable<HomeSlider>, IEnumerable<SlideViewModel>>(homeslider);

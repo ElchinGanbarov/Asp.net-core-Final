@@ -31,6 +31,18 @@ namespace Repository.Data
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<BlogText> BlogTexts { get; set; }
         public DbSet<Admin> Admins { get; set; }
+        public DbSet<CaseStudiesSpec> CaseStudiesSpecs { get; set; }
+        public DbSet<CaseStudiesSingle> CaseStudiesSingles { get; set; }
+        public DbSet<FAQ> FAQs { get; set; }
+        public DbSet<Solution> Solutions { get; set; }
+        public DbSet<AboutClaim> AboutClaims { get; set; }
+        public DbSet<AboutPolicy> AboutPolicies { get; set; }
+
+
+
+
+
+
 
 
 

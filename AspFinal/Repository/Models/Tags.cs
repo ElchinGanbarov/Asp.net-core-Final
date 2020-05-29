@@ -7,7 +7,7 @@ namespace Repository.Models
 {
     public class Tags:BaseEntity
     {
-        [Required]
+        [Required(ErrorMessage ="Ad yazin...")]
         [MaxLength(50)]
         public string Name { get; set; }
     }

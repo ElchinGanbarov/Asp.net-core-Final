@@ -32,7 +32,7 @@ namespace AspFinal.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
-            var blogs = _blogrepository.GetAllBlogs();
+            var blogs = _blogrepository.GetBlogText();
             var model = _mapper.Map<IEnumerable<Blog>, IEnumerable<BlogTablesViewModel>>(blogs);
             return View(model);
         }
@@ -64,50 +64,55 @@ namespace AspFinal.Areas.Admin.Controllers
             }
             return View(model);
         }
-        //public IActionResult Edit(int id)
-        //{
-        //    ViewBag.Categories = _categoryyRepository.GetFullCategories();
-        //    var agent = _homeRepository.GetAgentById(id);
-        //    var model = _mapper.Map<Agent, AgentViewModel>(agent);
-        //    return View(model);
-        //}
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public IActionResult Edit(AgentViewModel model)
-        //{
-        //    var agent = _mapper.Map<AgentViewModel, Agent>(model);
+        public IActionResult Edit(int id)
+        {
+            var blog = _blogrepository.GetBlogById(id);
+            var model = _mapper.Map<Blog, BlogTablesViewModel>(blog);
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(BlogTablesViewModel model)
+        {
+            var blog = _mapper.Map<BlogTablesViewModel, Blog>(model);
 
-        //    if (model == null) return NotFound();
+            if (model == null) return NotFound();
 
-        //    if (ModelState.IsValid)
-        //    {
-        //        var updateAgent = _homeRepository.GetAgentById(model.Id);
+            if (ModelState.IsValid)
+            {
+                var updateBlog = _blogrepository.GetBlogById(model.Id);
 
-        //        updateAgent.ModifiedBy = _admin.Name;
-        //        updateAgent.ModifiedDate = DateTime.Now;
-        //        if (model.File == null)
-        //        {
-        //            agent.Image = updateAgent.Image;
-        //        }
-        //        else
-        //        {
-        //            agent.Image = _fileManager.Upload(model.File);
+                updateBlog.ModifiedBy = _admin.Name;
+                updateBlog.ModifiedDate = DateTime.Now;
+                if (model.File == null)
+                {
+                    blog.Image = updateBlog.Image;
+                }
+                else
+                {
+                    blog.Image = _fileManager.Upload(model.File);
+                }
+                   
 
-        //        }
-        //        _homeRepository.UpdateAgent(updateAgent, agent);
+                
+                _blogrepository.UpdateBlog(updateBlog, blog);
 
-        //        return RedirectToAction("index");
-        //    }
-        //    return View(model);
-        //}
-        //public IActionResult Remove(int id)
-        //{
-        //    var agent = _homeRepository.GetAgentById(id);
-        //    _homeRepository.RemoveAgent(agent);
-        //    _fileManager.Delete(agent.Image);
-        //    var agents = _homeRepository.GetAllAgents();
-        //    var model = _mapper.Map<IEnumerable<Agent>, IEnumerable<AgentViewModel>>(agents);
-        //    return PartialView("index", model);
-        //}
+                return RedirectToAction("index");
+            }
+            return View(model);
+        }
+        public IActionResult Remove(int id)
+        {
+            var blog = _blogrepository.GetBlogById(id);
+            _blogrepository.RemoveBlog(blog);
+            if (blog.Image != null)
+            {
+                _fileManager.Delete(blog.Image);
+
+            }
+            var blogs = _blogrepository.GetBlogText();
+            var model = _mapper.Map<IEnumerable<Blog>, IEnumerable<BlogTablesViewModel>>(blogs);
+            return PartialView("index", model);
+        }
     }
 }

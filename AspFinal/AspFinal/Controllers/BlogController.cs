@@ -7,6 +7,7 @@ using AspFinal.Models.Blogs;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Repository.Models;
+using Repository.Repository.BlogRepository;
 using Repository.Repository.CategoryRepository;
 using Repository.Repository.HomeRepository;
 
@@ -17,12 +18,17 @@ namespace AspFinal.Controllers
         private readonly ICategoryyRepository _categoryRepository;
         private readonly IHomeRepository _homeRepository;
         private readonly IMapper _mapper;
+        private readonly IBlogRepository _blogRepository;
 
-        public BlogController(IHomeRepository homeRepository,ICategoryyRepository categoryRepository,IMapper mapper)
+        public BlogController(IHomeRepository homeRepository,
+                              ICategoryyRepository categoryRepository,
+                              IMapper mapper,
+                              IBlogRepository blogRepository)
         {
             _categoryRepository = categoryRepository;
             _homeRepository = homeRepository;
             _mapper = mapper;
+            _blogRepository = blogRepository;
         }
         public IActionResult BlogGrid()
         {
@@ -30,7 +36,9 @@ namespace AspFinal.Controllers
             {
                 Categories = _homeRepository.GetCategories(),
                 Settings = _homeRepository.GetSettings(),
-                Blogs = _homeRepository.GetBlogs()
+                Blogs = _homeRepository.GetBlogs(),
+              
+                
             };
             return View(model);
         }
@@ -39,8 +47,12 @@ namespace AspFinal.Controllers
             var model = new BlogViewModel {
 
                 Categories = _categoryRepository.GetCategories(),
-                Tags=_categoryRepository.GetTags(),
-                Posts=_categoryRepository.GetPosts()
+                Tags = _categoryRepository.GetTags(),
+                Posts = _categoryRepository.GetPosts(),
+                BlogTexts = _blogRepository.GetBlogStatus(),
+                Settings=_homeRepository.GetSettings()
+                
+                
             };
             return View(model);
         }

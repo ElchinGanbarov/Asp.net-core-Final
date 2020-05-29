@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Repository.Models
 {
     public class Testimonial : BaseEntity
     {
-        [Required]
-        public int AboutUsId { get; set; }
-        [Required]
+        [Required(ErrorMessage ="Texti daxil edin...")]
         [MaxLength(500)]
         public string Review { get; set; }
-        [Required]
-        [MaxLength(50)]
+        [Required(ErrorMessage = "Adi daxil edin...")]
+        [MaxLength(50,ErrorMessage ="Maksimum 50 xarekter olmalidir...")]
         public string Name { get; set; }
-        [Required]
-        [MaxLength(50)]
+        [Required(ErrorMessage ="Is tecrubesini qeyd edin...")]
+        [MaxLength(50, ErrorMessage = "Maksimum 50 xarekter olmalidir...")]
         public string WorkExperience { get; set; }
-        public AboutUs AboutUs { get; set; }
     }
 }

@@ -1,8 +1,12 @@
 ﻿using AspFinal.Areas.Admin.Models.Account;
 using AspFinal.Areas.Admin.Models.Agents;
 using AspFinal.Areas.Admin.Models.BlogTables;
+using AspFinal.Areas.Admin.Models.BrandView;
+using AspFinal.Areas.Admin.Models.CaseStudies;
 using AspFinal.Areas.Admin.Models.HomeImages;
+using AspFinal.Areas.Admin.Models.LikeAbles;
 using AspFinal.Areas.Admin.Models.Services;
+using AspFinal.Areas.Admin.Models.SettingView;
 using AspFinal.Models;
 using AspFinal.Models.Blogs;
 using AspFinal.Models.Contact;
@@ -40,9 +44,19 @@ namespace AspFinal.Mapping
             CreateMap<Blog, BlogTablesViewModel>();
             CreateMap<BlogTablesViewModel, Blog>();
 
+            CreateMap<Settings, SettingViewModel>();
+            CreateMap<SettingViewModel, Settings>();
 
 
+            CreateMap<CaseStudiesSingle, CaseStudiesViewModel>();
+            CreateMap<CaseStudiesViewModel, CaseStudiesSingle>();
 
+
+            CreateMap<Brand, BrandViewModel>();
+            CreateMap<BrandViewModel, Brand>();
+
+            CreateMap<LikeableArea, LikeAbleAreasViewModel>();
+            CreateMap<LikeAbleAreasViewModel, LikeableArea>();
 
         }
     }

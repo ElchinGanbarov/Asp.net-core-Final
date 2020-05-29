@@ -25,7 +25,6 @@ namespace AspFinal.Areas.Admin.Models.Services
         [MaxLength(50)]
         public string Logo { get; set; }
         public string Image { get; set; }
-        [Required(ErrorMessage ="Sekil elave edin...")]
         public IFormFile Images { get; set; }
     }
 }

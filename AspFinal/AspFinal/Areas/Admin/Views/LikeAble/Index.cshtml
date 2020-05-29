@@ -1,0 +1,87 @@
+﻿@model IEnumerable<AspFinal.Areas.Admin.Models.LikeAbles.LikeAbleAreasViewModel>
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">LikeAbleAreas</h6>
+        </div>
+        <div class="card-body">
+
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Veziyyeti</th>
+                            <th>Basliq</th>
+                            <th>Metn</th>
+                            <th>ActionText</th>
+                            <th>Phone</th>
+
+                            <th>Il</th>
+                            <th>Sekil</th>
+                            <th>
+                                <a class="btn btn-info text-white" asp-controller="likeable" asp-action="create"> Yarat</a>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Veziyyeti</th>
+                            <th>Basliq</th>
+                            <th>Metn</th>
+                            <th>ActionText</th>
+                            <th>Phone</th>
+
+                            <th>Il</th>
+                            <th>Sekil</th>
+                        </tr>
+                    </tfoot>
+                    <tbody class="tbody">
+
+                        @foreach (var item in Model)
+                        {
+
+                        <tr class="item">
+                            <td>@item.Status</td>
+                            <td>@item.Title</td>
+                            <td>@item.Text</td>
+                            <td>@item.ActionText</td>
+                            <td>@item.AboutUs.Phone</td>
+
+                            <td>@item.Experince</td>
+
+
+                            @if (item.Photo != null)
+                            {
+                                <td>
+                                    <img width="100" src="~/uploads/@item.Photo" />
+
+                                </td>
+                            }
+                            else
+                            {
+                                <td>NULL</td>
+                            }
+
+                            <td style="width:14%">
+                                <a asp-action="remove" asp-route-id="@item.Id" class="btn btn-danger btn-circle deleteitem">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                                <a asp-action="edit" asp-route-id="@item.Id" class="btn btn-success btn-circle ml-3 ">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                            </td>
+                        </tr>
+
+
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->

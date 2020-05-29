@@ -1,6 +1,6 @@
 ﻿@model HomeViewModel
 <!-- start page-title -->
-<section class="page-title">
+<section class="page-title" style="background-image:url(/uploads/@Model.Settings.ElementAt(0).CoverImage)">
     <div class="page-title-container">
         <div class="page-title-wrapper">
             <div class="container">
@@ -28,7 +28,7 @@
                     {
                         <div class="post format-standard-image">
                             <div class="entry-media">
-                                <img src="~/images/blog/@item.Image" alt="@item.Image">
+                                <img src="~/uploads/@item.Image" alt="@item.Image">
                             </div>
                             <ul class="entry-meta">
                                 <li><a href="#"><i class="fi flaticon-tag-1"></i>@item.ConpanyName</a></li>

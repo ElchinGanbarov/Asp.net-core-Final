@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Repository.Models.FAQ>
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Suallar</h6>
+        </div>
+        <div class="card-body">
+
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Veziyyeti</th>
+                            <th>Sual</th>
+                            <th>Cavab</th>
+                            <th>
+                                <a class="btn btn-info text-white" asp-controller="faq" asp-action="create">Yarat</a>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Veziyyeti</th>
+                            <th>Sual</th>
+                            <th>Cavab</th>
+                        </tr>
+                    </tfoot>
+                    <tbody class="tbody">
+
+                        @foreach (var item in Model)
+                        {
+
+                            <tr class="item">
+                                <td>@item.Status</td>
+                                <td>@item.Question</td>
+                                <td>@item.Answer</td>
+                                <td style="width:20%">
+                                    <a asp-action="remove" asp-route-id="@item.Id" class="btn btn-danger btn-circle deleteitem">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                    <a asp-action="edit" asp-route-id="@item.Id" class="btn btn-success btn-circle ml-3 ">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                </td>
+                            </tr>
+
+
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->

@@ -13,7 +13,7 @@ namespace Repository.Repository.HomeRepository
         IEnumerable<HomeSlider> GetHomeSliders();
         IEnumerable<AboutUs> GetAboutUs();
         IEnumerable<Category> GetCategories();
-        Settings GetSettings();
+        IEnumerable<Settings> GetSettings();
         IEnumerable<Agent> GetAgents();
         IEnumerable<Brand> GetBrands();
         IEnumerable<LikeableArea> GetLikeableAreas();
@@ -22,14 +22,17 @@ namespace Repository.Repository.HomeRepository
         IEnumerable<Blog> GetBlogs();
         IEnumerable<Agent> GetCaseAgent();
         Contact CreateComment(Contact home);
+        Settings SingleSetting();
         IEnumerable<ContactUss> GetContactUs();
         IEnumerable<Agent> GetAllAgents();
         HomeSlider CreateHomeSlider(HomeSlider homeslider);
+        AboutUs GetSingleAbout();
         HomeSlider GEtHomeSliderById(int id);
         void UpdateSlide(HomeSlider updateslide, HomeSlider slide);
         void DeleteSlide(HomeSlider slide);
         Agent AddAgent(Agent agent);
         Agent GetAgentById(int id);
+        IEnumerable<FAQ> GetFaqs(int count);
         void UpdateAgent(Agent updateAgent, Agent agent);
         void RemoveAgent(Agent agent);
     }
@@ -118,6 +121,11 @@ namespace Repository.Repository.HomeRepository
             return _context.ContactUs.Where(c => c.Status).ToList();
         }
 
+        public IEnumerable<FAQ> GetFaqs(int count)
+        {
+            return _context.FAQs.Where(f => f.Status).Take(count).ToList();
+        }
+
         public IEnumerable<HomeSlider> GetFullHomeSlider()
         {
             return _context.HomeSliders.ToList();
@@ -138,9 +146,9 @@ namespace Repository.Repository.HomeRepository
             return _context.LikeableAreas.Where(l => l.Status).ToList();
         }
 
-        public Settings GetSettings()
+        public AboutUs GetSingleAbout()
         {
-            return _context.Settings.Where(s => s.Status).FirstOrDefault();
+            return _context.AboutUs.Include(a => a.AboutClaims).Include(a => a.AboutDetails).Include(a => a.AboutPolicies).FirstOrDefault();
         }
 
         public IEnumerable<Testimonial> GetTestimonials()
@@ -152,6 +160,16 @@ namespace Repository.Repository.HomeRepository
         {
             _context.Agents.Remove(agent);
             _context.SaveChanges();
+        }
+
+        public IEnumerable<Settings> Setting()
+        {
+            return _context.Settings.Where(b=>b.Status).ToList();
+        }
+
+        public Settings SingleSetting()
+        {
+            return _context.Settings.FirstOrDefault();
         }
 
         public void UpdateAgent(Agent updateAgent, Agent agent)
@@ -174,6 +192,11 @@ namespace Repository.Repository.HomeRepository
             updateslide.Image = slide.Image;
             _context.SaveChanges();
 
+        }
+
+        IEnumerable<Settings> IHomeRepository.GetSettings()
+        {
+            return _context.Settings.Where(s => s.Status).ToList();
         }
     }
 }

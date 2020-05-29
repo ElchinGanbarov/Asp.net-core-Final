@@ -10,5 +10,6 @@ namespace AspFinal.Models.Contact
     {
         public ContactViewModel Comment { get; set; }
         public IEnumerable<ContactUss> ContactUs { get; set; }
+        public IEnumerable<Settings> Settings { get; set; }
     }
 }

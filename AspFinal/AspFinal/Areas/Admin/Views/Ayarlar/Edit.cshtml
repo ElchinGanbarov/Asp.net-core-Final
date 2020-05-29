@@ -1,0 +1,90 @@
+﻿
+@model AspFinal.Areas.Admin.Models.SettingView.SettingViewModel
+@{
+    ViewData["Title"] = "Yeni Şöbə";
+}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Yeni Ayarlar</h1>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Vəziyyəti</label>
+                    <div class="custom-control custom-radio custom-control-inline ml-3">
+                        <input type="radio" id="Status" value="true" name="Status" class="custom-control-input" @(Model.Status ? "checked" : "")>
+                        <label class="custom-control-label" for="Status">Aktiv</label>
+                        <span class="field-validation-valid text-danger" asp-validation-for="Status"></span>
+
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="StatusFal" value="false" name="Status" class="custom-control-input" @(Model.Status ? "" : "checked")>
+                        <label class="custom-control-label" for="StatusFal">Passiv</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="QueryNumber">Elaqe nomresi</label>
+                    <input class="form-control form-control-user slug-source" asp-for="QueryNumber">
+                    <span class="field-validation-valid text-danger" asp-validation-for="QueryNumber"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Adress">Adresi daxil edin</label>
+                    <input class="form-control form-control-user slug-source" asp-for="Adress">
+                    <span class="field-validation-valid text-danger" asp-validation-for="Adress"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Phone">Nomre</label>
+                    <input class="form-control form-control-user slug-source" asp-for="Phone">
+                    <span class="field-validation-valid text-danger" asp-validation-for="Phone"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email">Email </label>
+                    <input class="form-control form-control-user slug-source" asp-for="Email">
+                    <span class="field-validation-valid text-danger" asp-validation-for="Email"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="WorkTime">Is vaxdi</label>
+                    <input class="form-control form-control-user slug-source" asp-for="WorkTime">
+                    <span class="field-validation-valid text-danger" asp-validation-for="WorkTime"></span>
+                </div>
+
+
+                <div class="custom-file mb-4">
+                    <label asp-for="LogoFile" class="custom-file-label">Logo secin</label>
+                    <input asp-for="LogoFile" type="file" class="custom-file-input" aria-describedby="inputGroupFileAddon03">
+                    <span asp-validation-for="LogoFile" class="text-danger"></span>
+                </div>
+                <div class="custom-file mb-4">
+                    <label asp-for="LogoFile2" class="custom-file-label">Logo2 secin</label>
+                    <input asp-for="LogoFile2" type="file" class="custom-file-input" aria-describedby="inputGroupFileAddon03">
+                    <span asp-validation-for="LogoFile2" class="text-danger"></span>
+                </div>
+                <div class="custom-file">
+                    <label asp-for="CoverImageFile" class="custom-file-label">Sekil secin</label>
+                    <input asp-for="CoverImageFile" type="file" class="custom-file-input" aria-describedby="inputGroupFileAddon03">
+                    <span asp-validation-for="CoverImageFile" class="text-danger"></span>
+                </div>
+                <div class="form-group d-flex justify-content-end mt-3">
+                    <button type="submit" class="btn btn-primary btn-icon-split">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                        <span class="text">Yenile</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->
+
+
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+}
+
+

@@ -18,8 +18,6 @@ namespace Repository.Models
         [Required]
         [MaxLength(50)]
         public string ActionText { get; set; }
-        [Required]
-        [MaxLength(100)]
         public string Photo { get; set; }
         public int AboutUsId { get; set; }
         public AboutUs AboutUs { get; set; }

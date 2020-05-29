@@ -15,7 +15,6 @@ $(document).ready(function () {
                          type: "get",
                          dataType:"html",
                             success: function (response) {
-                                console.log("test")
                          elem.remove();
                             }
                          });

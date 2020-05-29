@@ -13,7 +13,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Repository.Data;
 using Repository.Repositories.AdminRepository;
+using Repository.Repository.AboutRepository;
 using Repository.Repository.BlogRepository;
+using Repository.Repository.CaseRepository;
 using Repository.Repository.CategoryRepository;
 using Repository.Repository.HomeRepository;
 
@@ -43,7 +45,8 @@ namespace AspFinal
             services.AddTransient<IAdminRepository, AdminRepository>();
             services.AddTransient<IFileManager, FileManager>();
             services.AddTransient<IBlogRepository, BlogRepository>();
-
+            services.AddTransient<ICaseRepository, CaseRepository>();
+            services.AddTransient<IAboutRepository, AboutRepository>();
 
 
 

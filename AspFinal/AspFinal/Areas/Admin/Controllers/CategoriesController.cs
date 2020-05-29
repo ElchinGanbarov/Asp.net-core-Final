@@ -90,8 +90,10 @@ namespace AspFinal.Areas.Admin.Controllers
                 else
                 {
                     category.Image = _fileManager.Upload(model.Images);
-
                 }
+                   
+
+                
                 _categoryRepository.UpdateCategory(updateCategory, category);
 
                 return RedirectToAction("index");
@@ -102,7 +104,11 @@ namespace AspFinal.Areas.Admin.Controllers
         {
             var category = _categoryRepository.GetCategoryById(id);
            _categoryRepository.RemoveCategoryId(category);
-            _fileManager.Delete(category.Image);
+            if(category.Image != null)
+            {
+                _fileManager.Delete(category.Image);
+            }
+          
             var categories = _categoryRepository.GetFullCategories();
             var model = _mapper.Map<IEnumerable<Category>, IEnumerable<CategoryViewModel>>(categories);
             return PartialView("index", model);

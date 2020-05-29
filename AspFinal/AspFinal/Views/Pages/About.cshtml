@@ -1,6 +1,6 @@
-﻿@model HomeViewModel
+﻿@model AspFinal.Models.AboutUsFolder.AboutUsViewModel
 <!-- start page-title -->
-<section class="page-title" style="background-image:url(/images/@Model.Settings.CoverImage)">
+<section class="page-title" style="background-image:url(/uploads/@Model.Settings.CoverImage)">
     <div class="page-title-container">
         <div class="page-title-wrapper">
             <div class="container">
@@ -25,7 +25,7 @@
             <div class="col col-md-3">
                 <div class="section-title mt">
                     <span>About us</span>
-                    <img src="~/images/logo-3.png" alt>
+                    <img src="~/uploads/@Model.Settings.Logo2" alt="@Model.Settings.Logo2">
                 </div>
                 <div class="info">
                     <h3>@Model.Settings.Phone</h3>
@@ -41,14 +41,18 @@
             </div>
             <div class="col col-md-4">
                 <div class="features-grid clearfix">
-                    <div class="grid">
-                        <div class="icon">
-                            <i class="fi flaticon-money-bag"></i>
+                    @foreach (var item in Model.AboutUs.AboutClaims)
+                    {
+                        <div class="grid">
+                            <div class="icon">
+                                <i class="@item.ClaimLogo"></i>
+                            </div>
+                            <h3>@item.ClaimSubtitle</h3>
+                            <p>@item.ClaimSubtext</p>
                         </div>
-                        <h3>Make a Claim</h3>
-                        <p>You can claim you money</p>
-                    </div>
-                    <div class="grid">
+                    }
+
+                    @*<div class="grid">
                         <div class="icon">
                             <i class="fi flaticon-agent"></i>
                         </div>
@@ -61,7 +65,7 @@
                         </div>
                         <h3>Pay Premium</h3>
                         <p>Pay your premium now</p>
-                    </div>
+                    </div>*@
                 </div>
             </div>
         </div>
@@ -75,15 +79,19 @@
             <div class="col col-xs-12">
                 <div class="fun-fact-area">
                     <div class="fun-fact-grids clearfix">
-                        <div class="grid">
-                            <div class="info">
-                                <h3><span class="odometer" data-count="10,50,000">00</span>+</h3>
-                                <p>Insurance Policies Issued</p>
-                                <p>A collection of textile samples lay spread out on the table samsa was a travelling</p>
-                                <a href="#" class="theme-btn-s3">Become a customer</a>
+                        @foreach (var item in Model.AboutUs.AboutPolicies)
+                        {
+                            <div class="grid">
+                                <div class="info">
+                                    <h3><span class="odometer" data-count="@item.PolicyCount">00</span>+</h3>
+                                    <p>@item.PolicySubTitle</p>
+                                    <p>@item.PolicySubText</p>
+                                    <a href="#" class="theme-btn-s3">@item.ActionText</a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="grid">
+                        }
+
+                        @*<div class="grid">
                             <div class="info">
                                 <h3><span class="odometer" data-count="98.75">00</span>%</h3>
                                 <p>Claims paid during FY</p>
@@ -99,7 +107,7 @@
                                 <a href="#" class="theme-btn-s3">Locate a branch</a>
                             </div>
                         </div>
-                    </div>
+                    </div>*@
                 </div>
 
             </div>
@@ -122,7 +130,7 @@
                             <div class="info">
                                 <h3>@Model.Settings.Phone</h3>
                                 <h4>@Model.Settings.Email</h4>
-                                <a asp-controller="pages" asp-action="aboutus" class="theme-btn">More About Us</a>
+                                <a asp-controller="pages" asp-action="about" class="theme-btn">More About Us</a>
                             </div>
                         </div>
                         @foreach (var item in Model.Agents)
@@ -137,61 +145,6 @@
                                 </div>
                             </div>
                         }
-
-                        @*<div class="grid">
-                                <div class="img-holder">
-                                    <img src="~/images/agents/img-2.jpg" alt>
-                                </div>
-                                <div class="agent-info">
-                                    <h4>Michel Jhon</h4>
-                                    <p>Marketing Expert</p>
-                                </div>
-                            </div>
-                            <div class="grid">
-                                <div class="img-holder">
-                                    <img src="~/images/agents/img-3.jpg" alt>
-                                </div>
-                                <div class="agent-info">
-                                    <h4>Michel Jhon</h4>
-                                    <p>Marketing Expert</p>
-                                </div>
-                            </div>
-                            <div class="grid">
-                                <div class="img-holder">
-                                    <img src="~/images/agents/img-4.jpg" alt>
-                                </div>
-                                <div class="agent-info">
-                                    <h4>Michel Jhon</h4>
-                                    <p>Marketing Expert</p>
-                                </div>
-                            </div>
-                            <div class="grid">
-                                <div class="img-holder">
-                                    <img src="~/images/agents/img-5.jpg" alt>
-                                </div>
-                                <div class="agent-info">
-                                    <h4>Michel Jhon</h4>
-                                    <p>Marketing Expert</p>
-                                </div>
-                            </div>
-                            <div class="grid">
-                                <div class="img-holder">
-                                    <img src="~/images/agents/img-6.jpg" alt>
-                                </div>
-                                <div class="agent-info">
-                                    <h4>Michel Jhon</h4>
-                                    <p>Marketing Expert</p>
-                                </div>
-                            </div>
-                            <div class="grid">
-                                <div class="img-holder">
-                                    <img src="~/images/agents/img-7.jpg" alt>
-                                </div>
-                                <div class="agent-info">
-                                    <h4>Michel Jhon</h4>
-                                    <p>Marketing Expert</p>
-                                </div>
-                            </div>*@
                     </div>
                 </div>
             </div>
@@ -218,48 +171,9 @@
             </div>
             <div class="col-lg-8">
                 <div class="testimonials-slider-holder">
-
                     <div class="testimonials-slider-s2">
-                        @foreach (var item in Model.Testimonials)
-                        {
-                            <div class="testimonials-slider-item">
-                                <div class="grid">
-                                    <p>@item.Review</p>
-                                    <div class="quoter">
-                                        <h4>@item.Name</h4>
-                                        <span>@item.WorkExperience</span>
-                                    </div>
-                                </div>
-                            </div>
+                        <vc:testmonial></vc:testmonial>
 
-                        }
-                        @*<div class="testimonials-slider-item">
-                                <div class="grid">
-                                    <p>Recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer</p>
-                                    <div class="quoter">
-                                        <h4>Mr. Bang</h4>
-                                        <span>Life insurance holder</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="testimonials-slider-item">
-                                <div class="grid">
-                                    <p>Recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer</p>
-                                    <div class="quoter">
-                                        <h4>Mr. Bang</h4>
-                                        <span>Life insurance holder</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="testimonials-slider-item">
-                                <div class="grid">
-                                    <p>Recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer</p>
-                                    <div class="quoter">
-                                        <h4>Mr. Bang</h4>
-                                        <span>Life insurance holder</span>
-                                    </div>
-                                </div>
-                            </div>*@
                     </div>
                 </div>
             </div>
@@ -277,22 +191,9 @@
                     @foreach (var item in Model.Brands)
                     {
                         <div class="grid">
-                            <img src="~/images/partners/@item.Logo" alt="">
+                            <img src="~/uploads/@item.Logo" alt="@item.Logo">
                         </div>
                     }
-
-                    @*<div class="grid">
-                            <img src="~/images/partners/img-2.png" alt="">
-                        </div>
-                        <div class="grid">
-                            <img src="~/images/partners/img-3.png" alt="">
-                        </div>
-                        <div class="grid">
-                            <img src="~/images/partners/img-4.png" alt="">
-                        </div>
-                        <div class="grid">
-                            <img src="~/images/partners/img-5.png" alt="">
-                        </div>*@
                 </div>
             </div>
         </div>

@@ -7,24 +7,25 @@ namespace Repository.Models
 {
     public class Settings : BaseEntity
     {
-        [Required]
-        [MaxLength(100)]
         public string Logo { get; set; }
+        public string Logo2 { get; set; }
+
         public string CoverImage { get; set; }
-        [Required]
+        [Required(ErrorMessage ="Nomre daxil edin...")]
         [MaxLength(50)]
         public string QueryNumber { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Adress daxil edin...")]
         [MaxLength(100)]
         public string Adress { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Nomre daxil edin...")]
         [MaxLength(50)]
         public string Phone { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Email daxil edin...")]
         [MaxLength(50)]
         public string Email { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Is vaxdini daxil edin...")]
         [MaxLength(50)]
         public string WorkTime { get; set; }
+
     }
 }
