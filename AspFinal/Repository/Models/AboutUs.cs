@@ -7,13 +7,13 @@ namespace Repository.Models
 {
     public class AboutUs:BaseEntity
     {
-        [Required]
+        [Required(ErrorMessage ="Texti daxil edin...")]
         [MaxLength(1000)]
         public string AboutText { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Basliq adi daxil edin...")]
         [MaxLength(500)]
         public string AboutTitle { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Nomrenizi daxil edin...")]
         [MaxLength(50)]
         public string  Phone { get; set; }
         public string  Image { get; set; }

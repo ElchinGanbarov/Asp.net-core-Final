@@ -13,17 +13,17 @@ namespace AspFinal.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [TypeFilter(typeof(Auth))]
-    public class AboutPolicyController : Controller
+    public class AboutClaimController : Controller
     {
         private Repository.Models.Admin _admin => RouteData.Values["Admin"] as Repository.Models.Admin;
         private readonly IAboutRepository _aboutRepository;
-        public AboutPolicyController(IAboutRepository aboutRepository)
+        public AboutClaimController(IAboutRepository aboutRepository)
         {
             _aboutRepository = aboutRepository;
         }
         public IActionResult Index()
         {
-            var model = _aboutRepository.GetAboutPolicy();
+            var model = _aboutRepository.GetAboutClaim();
             return View(model);
         }
         public IActionResult Create()
@@ -33,7 +33,7 @@ namespace AspFinal.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(AboutPolicy model)
+        public IActionResult Create(AboutClaim model)
         {
             ViewBag.AboutUs = _aboutRepository.GetAboutFull();
             if (model == null) return NotFound();
@@ -41,7 +41,7 @@ namespace AspFinal.Areas.Admin.Controllers
             {
                 model.AddedBy = _admin.Name;
                 model.AddedDate = DateTime.Now;
-                _aboutRepository.CreateAboutPolicy(model);
+                _aboutRepository.CreateAboutClaim(model);
                 return RedirectToAction("index");
             }
             return View(model);
@@ -50,30 +50,30 @@ namespace AspFinal.Areas.Admin.Controllers
         public IActionResult Edit(int id)
         {
             ViewBag.AboutUs = _aboutRepository.GetAboutFull();
-            var model = _aboutRepository.AboutPolicylById(id);
+            var model = _aboutRepository.AboutClaimById(id);
             return View(model);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(AboutPolicy model)
+        public IActionResult Edit(AboutClaim model)
         {
             ViewBag.AboutUs = _aboutRepository.GetAboutFull();
-            var updateAboutPolicy = _aboutRepository.AboutPolicylById(model.Id);
+            var updateAboutClaim = _aboutRepository.AboutClaimById(model.Id);
             if (model == null) return NotFound();
             if (ModelState.IsValid)
             {
-                updateAboutPolicy.ModifiedBy = _admin.Name;
-                updateAboutPolicy.ModifiedDate = DateTime.Now;
-                _aboutRepository.UpdatePolicy(updateAboutPolicy, model);
+                updateAboutClaim.ModifiedBy = _admin.Name;
+                updateAboutClaim.ModifiedDate = DateTime.Now;
+                _aboutRepository.UpdateClaim(updateAboutClaim, model);
                 return RedirectToAction("index");
             }
             return View(model);
         }
         public IActionResult Remove(int id)
         {
-            var policy = _aboutRepository.AboutPolicylById(id);
-            _aboutRepository.RemovePolicy(policy);
-            var model = _aboutRepository.GetAboutPolicy();
+            var claim = _aboutRepository.AboutClaimById(id);
+            _aboutRepository.RemoveClaim(claim);
+            var model = _aboutRepository.GetAboutClaim();
             return PartialView("index", model);
         }
     }

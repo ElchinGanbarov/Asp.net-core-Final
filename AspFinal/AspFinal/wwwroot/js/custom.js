@@ -27,6 +27,7 @@ $(document).ready(function () {
              e.preventDefault();
     });
 });
+
 //$(document).on("click", ".deleteitem", function (ev) {
 //    let elem = $(this).parents(".item");
 //    $.ajax({

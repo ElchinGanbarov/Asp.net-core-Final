@@ -370,3 +370,12 @@ C:\Users\Admin\Desktop\Asp.net-core-Final\AspFinal\AspFinal\obj\Debug\netcoreapp
 C:\Users\Admin\Desktop\Asp.net-core-Final\AspFinal\AspFinal\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AboutDetail\Index.cshtml.g.cs
 C:\Users\Admin\Desktop\Asp.net-core-Final\AspFinal\AspFinal\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AboutDetail\Create.cshtml.g.cs
 C:\Users\Admin\Desktop\Asp.net-core-Final\AspFinal\AspFinal\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AboutDetail\Edit.cshtml.g.cs
+C:\Users\Admin\Desktop\Asp.net-core-Final\AspFinal\AspFinal\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AboutPolicy\Index.cshtml.g.cs
+C:\Users\Admin\Desktop\Asp.net-core-Final\AspFinal\AspFinal\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AboutPolicy\Create.cshtml.g.cs
+C:\Users\Admin\Desktop\Asp.net-core-Final\AspFinal\AspFinal\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AboutPolicy\Edit.cshtml.g.cs
+C:\Users\Admin\Desktop\Asp.net-core-Final\AspFinal\AspFinal\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AboutClaim\Index.cshtml.g.cs
+C:\Users\Admin\Desktop\Asp.net-core-Final\AspFinal\AspFinal\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AboutClaim\Create.cshtml.g.cs
+C:\Users\Admin\Desktop\Asp.net-core-Final\AspFinal\AspFinal\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AboutClaim\Edit.cshtml.g.cs
+C:\Users\Admin\Desktop\Asp.net-core-Final\AspFinal\AspFinal\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\About\Index.cshtml.g.cs
+C:\Users\Admin\Desktop\Asp.net-core-Final\AspFinal\AspFinal\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\About\Create.cshtml.g.cs
+C:\Users\Admin\Desktop\Asp.net-core-Final\AspFinal\AspFinal\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\About\Edit.cshtml.g.cs

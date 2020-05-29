@@ -46,7 +46,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" asp-controller="dashboard" asp-action="index">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
@@ -148,9 +148,27 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" asp-controller="about" asp-action="index">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Haqqimizda</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" asp-controller="aboutdetail" asp-action="index">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Haqqimizdaki Detallar</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="aboutpolicy" asp-action="index">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Haqqimizdaki politikalar</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="aboutclaim" asp-action="index">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Haqqmizda Odeme</span>
                 </a>
             </li>
 

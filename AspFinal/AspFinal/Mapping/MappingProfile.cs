@@ -1,4 +1,5 @@
-﻿using AspFinal.Areas.Admin.Models.Account;
+﻿using AspFinal.Areas.Admin.Models.AboutModel;
+using AspFinal.Areas.Admin.Models.Account;
 using AspFinal.Areas.Admin.Models.Agents;
 using AspFinal.Areas.Admin.Models.BlogTables;
 using AspFinal.Areas.Admin.Models.BrandView;
@@ -57,6 +58,10 @@ namespace AspFinal.Mapping
 
             CreateMap<LikeableArea, LikeAbleAreasViewModel>();
             CreateMap<LikeAbleAreasViewModel, LikeableArea>();
+
+            CreateMap<AboutUs, AboutModel>();
+            CreateMap<AboutModel, AboutUs>();
+
 
         }
     }

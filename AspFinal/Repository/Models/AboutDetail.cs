@@ -7,15 +7,16 @@ namespace Repository.Models
 {
    public class AboutDetail:BaseEntity
     {
-        [Required]
+        [Required(ErrorMessage ="Acar sozu daxil edin...")]
         [MaxLength(100)]
         public string Key { get; set; }
-        [Required]
+        [Required(ErrorMessage ="Deyeri daxil edin...")]
         [MaxLength(100)]
         public string Value { get; set; }
-        [Required]
+        [Required(ErrorMessage ="Logo adi daxil edin...")]
         [MaxLength(100)]
         public string Logo { get; set; }
+        [Required(ErrorMessage = "Secimini daxil edin...")]
         public int AboutUsId { get; set; }
         public AboutUs AboutUs { get; set; }
     }
