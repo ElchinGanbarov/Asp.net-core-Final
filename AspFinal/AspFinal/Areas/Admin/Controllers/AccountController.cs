@@ -11,7 +11,7 @@ using Repository.Repositories.AdminRepository;
 
 namespace Admin.Controllers
 {
-    [Area("Admin")]
+    [Area("Admin")]    
     public class AccountController : Controller
     {
         private Repository.Models.Admin _admin => RouteData.Values["Admin"] as Repository.Models.Admin;

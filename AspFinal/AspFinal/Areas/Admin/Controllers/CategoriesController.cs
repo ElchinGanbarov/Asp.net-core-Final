@@ -38,6 +38,7 @@ namespace AspFinal.Areas.Admin.Controllers
            
             return View();
         }
+        //Servis Creat//
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(CategoryViewModel model)
@@ -66,9 +67,11 @@ namespace AspFinal.Areas.Admin.Controllers
         public IActionResult Edit(int id)
         {
             var category=_categoryRepository.GetCategoryById(id);
+            if (category == null) return NotFound();
             var model = _mapper.Map<Category, CategoryViewModel>(category);
             return View(model);
         }
+        //Servis Edit//
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(CategoryViewModel model)
@@ -100,6 +103,7 @@ namespace AspFinal.Areas.Admin.Controllers
             }
             return View(model);
         }
+        //Remove Servis//
         public IActionResult Remove(int id)
         {
             var category = _categoryRepository.GetCategoryById(id);

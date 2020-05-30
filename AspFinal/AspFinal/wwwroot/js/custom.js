@@ -1,4 +1,4 @@
-﻿// Ajax element Remove//
+﻿// Ajax element Remove Event//
 $(document).ready(function () {
     $(".deleteitem").click(function (e) {
         let elem = $(this).parents(".item");
@@ -27,19 +27,3 @@ $(document).ready(function () {
              e.preventDefault();
     });
 });
-
-//$(document).on("click", ".deleteitem", function (ev) {
-//    let elem = $(this).parents(".item");
-//    $.ajax({
-//        url: $(this).attr("href"),
-//        type: "get",
-//        success: function (response) {
-//            elem.remove();
-//            console.log("test");
-//        }
-//    });
-//    ev.preventDefault();
-//});
-
-   
-

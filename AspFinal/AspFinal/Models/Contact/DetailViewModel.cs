@@ -8,7 +8,7 @@ namespace AspFinal.Models.Contact
 {
     public class DetailViewModel
     {
-        public ContactViewModel Comment { get; set; }
+        public ContactViewModel Contact { get; set; }
         public IEnumerable<ContactUss> ContactUs { get; set; }
         public IEnumerable<Settings> Settings { get; set; }
     }

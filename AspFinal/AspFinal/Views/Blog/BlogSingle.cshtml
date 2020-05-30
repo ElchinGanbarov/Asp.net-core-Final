@@ -1,4 +1,8 @@
 ﻿ @model AspFinal.Models.Blogs.BlogViewModel
+@{
+    int count = 3;
+
+}
     <!-- start page-title -->
 <section class="page-title" style="background-image:url(/uploads/@Model.Settings.ElementAt(0).CoverImage)">
     <div class="page-title-container">
@@ -98,7 +102,7 @@
 
                     <div class="comments-area">
                         <div class="comments-section">
-                            <h3 class="comments-title">5 Comments</h3>
+                        <h3 class="comments-title"> @(count+Model.Comments.Count()) Comments</h3>
                             <ol class="comments">
                                 <li class="comment even thread-even depth-1" id="comment-1">
                                     <div id="div-comment-1">
@@ -166,31 +170,36 @@
                                 </li>
 
                                 <li class="comment">
-                                    <div>
-                                        <div class="comment-theme">
-                                            <div class="comment-image"><img src="~/images/blog-details/comments-author/img-4.jpg" alt></div>
-                                        </div>
-                                        <div class="comment-main-area">
-                                            <div class="comment-wrapper">
-                                                <div class="comments-meta">
-                                                    <h4>Jhon <span class="comments-date">says Jan 05, 2020 at 9:00am</span></h4>
-                                                </div>
-                                                <div class="comment-area">
-                                                    <p>Magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered</p>
-                                                    <div class="comments-reply">
-                                                        <a class="comment-reply-link" href="#"><span>Reply</span></a>
+                                    @if (Model.Comments != null)
+                                    {
+                                        @foreach (var item in Model.Comments)
+                                        {
+                                            <div>
+
+                                                <div class="comment-main-area">
+                                                    <div class="comment-wrapper">
+                                                        <div class="comments-meta">
+                                                            <h4>@item.Name <span class="comments-date">@item.DateTime</span></h4>
+                                                        </div>
+                                                        <div class="comment-area">
+                                                            <p>@item.Text</p>
+                                                            <div class="comments-reply">
+                                                                <a class="comment-reply-link" href="#"><span>Reply</span></a>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
+                                        }
+                                    }
+
                                 </li>
                             </ol>
                         </div> <!-- end comments-section -->
 
                         <div class="comment-respond">
                             <h3 class="comment-reply-title">Add your comment</h3>
-                            <form method="post" asp-action="contact" >
+                            <form method="post" asp-action="contact"  class="comment">
                                 <div class="form-group">
                                     <div class="form-textarea">
                                         <textarea asp-for="Contact.Text" placeholder="Write Your Comments..."></textarea>
@@ -212,7 +221,7 @@
                                     </div>
                                 </div>
                                 <div class="form-submit">
-                                    <input value="Post Comment" class="thema"  type="submit">
+                                    <input value="Post Comment"   type="submit">
                                 </div>
                             </form>
                         </div>
@@ -252,11 +261,6 @@
                             {
                                 <li><a href="#">@item.Name <span>(@item.Count)</span></a></li>
                             }
-
-                            @*<li><a href="#">Home Insurance <span>(5)</span></a></li>
-                            <li><a href="#">Health Insurance <span>(12)</span></a></li>
-                            <li><a href="#">Property insurance  <span>(5)</span></a></li>
-                            <li><a href="#">Fire Insurance <span>(8)</span></a></li>*@
                         </ul>
                     </div>
                     <div class="widget recent-post-widget">
@@ -274,25 +278,6 @@
                                     </div>
                                 </div>
                             }
-
-                            @*<div class="post">
-                                <div class="img-holder">
-                                    <img src="~/images/recent-posts/img-2.jpg" alt>
-                                </div>
-                                <div class="details">
-                                    <h4><a href="#">Once you’ve picked your vorite, be sure to outfit your</a></h4>
-                                    <span class="date">11 March 2020</span>
-                                </div>
-                            </div>
-                            <div class="post">
-                                <div class="img-holder">
-                                    <img src="~/images/recent-posts/img-3.jpg" alt>
-                                </div>
-                                <div class="details">
-                                    <h4><a href="#">Be prepared for life’s Once you’ve picked your vorite</a></h4>
-                                    <span class="date">11 March 2020</span>
-                                </div>
-                            </div>*@
                         </div>
                     </div>
                     <div class="widget tag-widget">
@@ -303,11 +288,7 @@
                                 <li><a href="#">@item.Name</a></li>
 
                             }
-                            @*<li><a href="#">Business</a></li>
-                            <li><a href="#">Life insurance</a></li>
-                            <li><a href="#">Poll insurance</a></li>
-                            <li><a href="#">Car insurance</a></li>
-                            <li><a href="#">Manfacturing</a></li>*@
+                 
                         </ul>
                     </div>
                     <div class="widget ad-widget">
@@ -327,28 +308,42 @@
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 
 <script>
-    $(document).on("click", ".thema", function (e) {
-        let Contact_Text=$("#Contact_Text")
+    $(document).on("submit", ".comment", function (e) {
+        e.preventDefault();
+
+        let Contact_Text = $("#Contact_Text").val();
+        let Contact_Website = $("#Contact_Website").val();
+        let Contact_Name = $("#Contact_Name").val();
+        let Contact_Email = $("#Contact_Email").val();
+        $("#Contact_Text").val("");
+        $("#Contact_Website").val("");
+        $("#Contact_Name").val("");
+        $("#Contact_Email").val("");
+
         let element = $(".comments");
-        let time = new Date('');
-        
-             $.ajax({
-                 url: $(this).attr("href"),
-                 type: 'get',
-                 dataType: "html",
-                 success: function (res) {
+        let time = new Date();
+        $.ajax({
+            url: '/blog/comment',
+            type: 'POST',
+            dataType: "json",
+            data: {
+                text: Contact_Text,
+                website: Contact_Website,
+                name: Contact_Name,
+                email: Contact_Email
+            },
+            success: function (res) {
+                console.log(res);
                      element.append(` <li class="comment">
                                     <div>
-                                        <div class="comment-theme">
-                                            <div class="comment-image"><img src="~/images/blog-details/comments-author/img-4.jpg" alt></div>
-                                        </div>
+                                       
                                         <div class="comment-main-area">
                                             <div class="comment-wrapper">
                                                 <div class="comments-meta">
-                                                    <h4>Jhon <span class="comments-date">says ${time}</span></h4>
+                                                    <h4>${res.name} <span class="comments-date">says ${time}</span></h4>
                                                 </div>
                                                 <div class="comment-area">
-                                                    <p>${Contact_Text.val()}</p>
+                                                    <p>${res.text}</p>
                                                     <div class="comments-reply">
                                                         <a class="comment-reply-link" href="#"><span>Reply</span></a>
                                                     </div>
@@ -370,6 +365,7 @@
 
             }
         });
+
     });
 
 </script>

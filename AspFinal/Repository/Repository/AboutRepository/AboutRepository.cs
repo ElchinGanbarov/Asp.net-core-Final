@@ -24,6 +24,7 @@ namespace Repository.Repository.AboutRepository
         Testimonial CreatTestmonial(Testimonial model);
         Testimonial TestmonialById(int id);
         void TestmonialUpdate(Testimonial updatetestmonial, Testimonial model);
+        IEnumerable<ContactUss> GetContactUs();
         IEnumerable<AboutClaim> GetAboutClaim();
         IEnumerable<AboutPolicy> GetAboutPolicy();
         IEnumerable<AboutDetail> GetAboutDetail();
@@ -32,9 +33,11 @@ namespace Repository.Repository.AboutRepository
         IEnumerable<AboutUs> GetFullAbouts();
         LikeableArea AddLikeAble(LikeableArea like);
         IEnumerable<AboutUs> GetAboutFull();
+        ContactUss ContactCreat(ContactUss model);
         LikeableArea GetLikeAreById(int id);
         void UpdateLikeArea(LikeableArea updateLike, LikeableArea like);
         void RemoveLikeArea(LikeableArea like);
+        ContactUss GetContactById(int id);
         AboutDetail CreateAboutUs(AboutDetail model);
         AboutClaim CreateAboutClaim(AboutClaim model);
         AboutDetail GetAboutUsById(int id);
@@ -44,10 +47,12 @@ namespace Repository.Repository.AboutRepository
         AboutClaim AboutClaimById(int id);
         AboutPolicy AboutPolicylById(int id);
         void UpdatePolicy(AboutPolicy updateAboutPolicy, AboutPolicy model);
+        void UpdateContact(ContactUss updatecontact, ContactUss model);
         void RemovePolicy(AboutPolicy policy);
         void UpdateClaim(AboutClaim updateAboutClaim, AboutClaim model);
         AboutUs AddAbout(AboutUs about);
         void RemoveClaim(AboutClaim claim);
+        void RemoveContact(ContactUss contact);
         AboutUs GetAboutById(int id);
         void UpdateAbout(AboutUs updateAbout, AboutUs about);
         void RemoveAbout(AboutUs about);
@@ -89,6 +94,13 @@ namespace Repository.Repository.AboutRepository
             _context.LikeableAreas.Add(like);
             _context.SaveChanges();
             return like;
+        }
+
+        public ContactUss ContactCreat(ContactUss model)
+        {
+            _context.ContactUs.Add(model);
+            _context.SaveChanges();
+            return model;
         }
 
         public AboutClaim CreateAboutClaim(AboutClaim model)
@@ -158,6 +170,16 @@ namespace Repository.Repository.AboutRepository
             return _context.Brands.ToList();
         }
 
+        public ContactUss GetContactById(int id)
+        {
+            return _context.ContactUs.Find(id);
+        }
+
+        public IEnumerable<ContactUss> GetContactUs()
+        {
+            return _context.ContactUs.ToList();
+        }
+
         public IEnumerable<AboutUs> GetFullAbouts()
         {
             return _context.AboutUs.ToList();
@@ -210,6 +232,13 @@ namespace Repository.Repository.AboutRepository
         {
             _context.AboutClaims.Remove(claim);
             _context.SaveChanges();
+        }
+
+        public void RemoveContact(ContactUss contact)
+        {
+            _context.ContactUs.Remove(contact);
+            _context.SaveChanges();
+
         }
 
         public void RemoveLikeArea(LikeableArea like)
@@ -293,6 +322,20 @@ namespace Repository.Repository.AboutRepository
             updateAboutClaim.ClaimSubtitle = model.ClaimSubtitle;
             updateAboutClaim.AboutUsId = model.AboutUsId;
             _context.SaveChanges();
+
+        }
+
+        public void UpdateContact(ContactUss updatecontact, ContactUss model)
+        {
+            updatecontact.Status = model.Status;
+            updatecontact.Title = model.Title;
+            updatecontact.Text = model.Text;
+            updatecontact.Key = model.Key;
+            updatecontact.Value = model.Value;
+            updatecontact.Logo = model.Logo;
+            _context.SaveChanges();
+
+
 
         }
 

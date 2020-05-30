@@ -39,22 +39,6 @@
                             <p>@Html.Raw(item.Value)</p>
                         </div>
                     }
-
-                    @*<div class="grid">
-                        <i class="fi flaticon-email"></i>
-                        <h4>Email Address</h4>
-                        <p>demo@example.com <br>example@g.com</p>
-                    </div>
-                    <div class="grid">
-                        <i class="fi flaticon-call"></i>
-                        <h4>Phone Number</h4>
-                        <p>++98747561741 <br>++34+6465465464521</p>
-                    </div>
-                    <div class="grid">
-                        <i class="fi flaticon-alarm"></i>
-                        <h4>Opening Hours</h4>
-                        <p>Mon day - Sun day  <br>10Am - 5PM</p>
-                    </div>*@
                 </div>
             </div>
         </div>
@@ -69,36 +53,36 @@
                 </div>
                 <div class="col col-md-8">
                     <div class="contact-form">
-                      
-                        <form method="post" asp-controller="pages" asp-action="comment" class="theme contact-validation-active" >
+                       
+                        <form method="post" class="contact contact-validation-active" >
                             <div class="form-group">
-                                <input asp-for="Comment.Name" class="form-control" placeholder="Name*">
-                                <span asp-validation-for="Comment.Name" class="text-danger"></span>
+                                <input asp-for="Contact.Name" class="form-control" placeholder="Name*">
+                                <span asp-validation-for="Contact.Name" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <input asp-for="Comment.Email" class="form-control" placeholder="Email*">
-                                <span asp-validation-for="Comment.Email" class="text-danger"></span>
+                                <input asp-for="Contact.Email" class="form-control" placeholder="Email*">
+                                <span asp-validation-for="Contact.Email" class="text-danger"></span>
 
                             </div>
                             <div class="form-group">
-                                <input asp-for="Comment.Phone" class="form-control" placeholder="Phone*">
-                                <span asp-validation-for="Comment.Phone" class="text-danger"></span>
+                                <input asp-for="Contact.Phone" class="form-control" placeholder="Phone*">
+                                <span asp-validation-for="Contact.Phone" class="text-danger"></span>
 
                             </div>
                             <div>
-                                <select asp-for="Comment.Contactsubject" class="form-control">
+                                <select asp-for="Contact.Contactsubject" class="form-control">
 
                                     <option disabled="disabled" selected>Contact subject</option>
                                     <option>Subject 1</option>
                                     <option>Subject 2</option>
                                     <option>Subject 3</option>
                                 </select>
-                                <span asp-validation-for="Comment.Contactsubject" class="text-danger"></span>
+                                <span asp-validation-for="Contact.Contactsubject" class="text-danger"></span>
 
                             </div>
                             <div class="fullwidth">
-                                <textarea asp-for="Comment.Description" class="form-control" placeholder="Case Description..."></textarea>
-                                <span asp-validation-for="Comment.Description" class="text-danger"></span>
+                                <textarea asp-for="Contact.Description" class="form-control" placeholder="Case Description..."></textarea>
+                                <span asp-validation-for="Contact.Description" class="text-danger"></span>
 
                             </div>
                             <div class="submit-area">
@@ -107,10 +91,6 @@
                                     <i class="ti-reload"></i>
                                 </div>
                             </div>
-                            @*<div class="clearfix error-handling-messages">
-                                <div id="success">Thank you</div>
-                                <div id="error"> Error occurred while sending email. Please try again later. </div>
-                            </div>*@
                         </form>
                     </div>
                 </div>
@@ -135,26 +115,46 @@
 
 
 <script>
-    $(document).on("submit", ".theme", function (e) {
+    $(document).on("submit", ".contact", function (e) {
+        e.preventDefault();
+        let Contact_Email = $("#Contact_Email").val();
+        let Contact_Contactsubject = $("#Contact_Contactsubject").val();
+        let Contact_Name = $("#Contact_Name").val();
+        let Contact_Phone = $("#Contact_Phone").val();
+        let Contact_Description = $("#Contact_Description").val();
+        $("#Contact_Email").val("");
+        $("#Contact_Contactsubject").val("");
+        $("#Contact_Name").val("");
+        $("#Contact_Phone").val("");
+        $("#Contact_Description").val("");
         $.ajax({
-            url: $(this).attr("href"),
-        	type: "get",
+            url: '/pages/contact',
+            type: 'POST',
+            dataType: "json",
+            data: {
+                email: Contact_Email,
+                contactsubject: Contact_Contactsubject,
+                name: Contact_Name,
+                phone: Contact_Phone,
+                description: Contact_Description
+            },
             success: function (res) {
-                console.log("test");
-              
-                    $.toast({
-                        heading: 'Məlumat',
-                        text: "Elaqe baziya elave edildi",
-                        icon: 'success',
-                        loader: true,
-                        bgColor: '#3988ff',
-                        loaderBg: '#f7d40d',
-                        position: 'bottom-right',
-                    });
-              
-        	
-        	}
+                console.log(res);
+                $.toast({
+                    heading: 'Məlumat',
+                    text: "Commentiniz baziya elave edildi",
+                    icon: 'success',
+                    loader: true,
+                    bgColor: '#3988ff',
+                    loaderBg: '#f7d40d',
+                    position: 'bottom-right',
+                });
+
+
+            }
         });
+      
+
     });
 
 </script>

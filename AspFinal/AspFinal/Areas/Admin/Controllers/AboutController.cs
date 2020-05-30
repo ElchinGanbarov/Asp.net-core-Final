@@ -42,6 +42,7 @@ namespace AspFinal.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        //About Creat//
         public IActionResult Create(AboutModel model)
         {
             if (model == null) return NotFound();

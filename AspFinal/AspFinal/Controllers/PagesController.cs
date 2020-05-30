@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AspFinal.Models;
 using AspFinal.Models.AboutUsFolder;
+using AspFinal.Models.Blogs;
 using AspFinal.Models.Contact;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -67,21 +68,28 @@ namespace AspFinal.Controllers
             return View(model);
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Comment(ContactViewModel comment)
+        //[ValidateAntiForgeryToken]
+        public IActionResult Contact(ContactViewModel contact)
         {
             if (ModelState.IsValid)
             {
-                var home = _mapper.Map<ContactViewModel, Contact>(comment);
+                var home = _mapper.Map<ContactViewModel, Contact>(contact);
                 _homeRepository.CreateComment(home);
-                return RedirectToAction(/*"~/Views/Shared/Comment/_Comment.cshtml"*/ "index","home");
+                return Ok(contact);
+
+
             }
 
 
             return View("~/Views/Pages/Contact.cshtml", new DetailViewModel
             {
-                Comment = comment
+                Contact = contact,
+                ContactUs = _homeRepository.GetContactUs(),
+                Settings = _homeRepository.GetSettings()
             });
+
+
+
         }
         public IActionResult Error404()
         {

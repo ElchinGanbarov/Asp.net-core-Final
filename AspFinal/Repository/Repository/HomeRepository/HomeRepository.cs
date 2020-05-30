@@ -35,6 +35,8 @@ namespace Repository.Repository.HomeRepository
         IEnumerable<FAQ> GetFaqs(int count);
         void UpdateAgent(Agent updateAgent, Agent agent);
         void RemoveAgent(Agent agent);
+        Comments CreateCommented(Comments home);
+        IEnumerable<Comments> CommentsList();
     }
     public class HomeRepository : IHomeRepository
     {
@@ -51,12 +53,24 @@ namespace Repository.Repository.HomeRepository
             return agent;
         }
 
+        public IEnumerable<Comments> CommentsList()
+        {
+            return _context.Comments.Where(c => c.Status).ToList();
+        }
+
         public Contact CreateComment(Contact home)
         {
             home.AddedBy = "System";
             home.Status = true;
             home.AddedDate = DateTime.Now;
             _context.Contacts.Add(home);
+            _context.SaveChanges();
+            return home;
+        }
+
+        public Comments CreateCommented(Comments home)
+        {
+            _context.Comments.Add(home);
             _context.SaveChanges();
             return home;
         }
