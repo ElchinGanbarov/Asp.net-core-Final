@@ -26,6 +26,13 @@ namespace Repository.Repository.BlogRepository
         Settings GetSettingById(int id);
         void UpdateSetting(Settings updateSetting, Settings setting);
         void RemoveSetting(Settings settings);
+        IEnumerable<BlogImages> GetBlogImages();
+        IEnumerable<Blog> GetBlogsTrue();
+        BlogImages AddBlogIMages(BlogImages blogImages);
+        BlogImages GetBlogImagesById(int id);
+        void UpdateBlogIMages(BlogImages updateBlogimages, BlogImages blogimages);
+        void RemoveBlogIMages(BlogImages blogimage);
+        IEnumerable<BlogImages> ImagesTrue();
     }
     public class BlogRepository : IBlogRepository
     {
@@ -65,7 +72,6 @@ namespace Repository.Repository.BlogRepository
             updateBlog.ActionText = blog.ActionText;
             updateBlog.Title = blog.Title;
             updateBlog.ConpanyName = blog.ConpanyName;
-            updateBlog.Image = blog.Image;
             _context.SaveChanges();
         }
 
@@ -140,6 +146,49 @@ namespace Repository.Repository.BlogRepository
         {
             _context.Settings.Remove(settings);
             _context.SaveChanges();
+        }
+
+        public IEnumerable<BlogImages> GetBlogImages()
+        {
+            return _context.BlogImages.Include(b => b.Blog).ToList();
+        }
+
+        public IEnumerable<Blog> GetBlogsTrue()
+        {
+            return _context.Blogs.Where(b => b.Status).ToList();
+        }
+
+        public BlogImages AddBlogIMages(BlogImages blogImages)
+        {
+            _context.BlogImages.Add(blogImages);
+            _context.SaveChanges();
+            return blogImages;
+        }
+
+        public BlogImages GetBlogImagesById(int id)
+        {
+            return _context.BlogImages.Include(b => b.Blog).FirstOrDefault(b => b.Id == id);
+        }
+
+        public void UpdateBlogIMages(BlogImages updateBlogimages, BlogImages blogimages)
+        {
+            updateBlogimages.Status = blogimages.Status;
+            updateBlogimages.BlogId = blogimages.BlogId;
+            updateBlogimages.Image = blogimages.Image;
+            _context.SaveChanges();
+
+
+        }
+
+        public void RemoveBlogIMages(BlogImages blogimage)
+        {
+            _context.BlogImages.Remove(blogimage);
+            _context.SaveChanges();
+        }
+
+        public IEnumerable<BlogImages> ImagesTrue()
+        {
+            return _context.BlogImages.Include(b => b.Blog).ToList();
         }
     }
 }

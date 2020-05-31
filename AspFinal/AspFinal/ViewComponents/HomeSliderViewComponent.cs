@@ -19,6 +19,7 @@ namespace AspFinal.ViewComponents
             _homeRepository = homeRepository;
             _mapper = mapper;
         }
+        //HomeSlider View Component
         public IViewComponentResult Invoke()
         {
             var homeSliders = _homeRepository.GetHomeSliders();

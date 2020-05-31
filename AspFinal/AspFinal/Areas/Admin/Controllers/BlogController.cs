@@ -50,15 +50,6 @@ namespace AspFinal.Areas.Admin.Controllers
                 var blog = _mapper.Map<BlogTablesViewModel, Blog>(model);
                 blog.AddedBy = _admin.Name;
                 blog.AddedDate = DateTime.Now;
-                if (model.File != null)
-                {
-                    blog.Image = _fileManager.Upload(model.File);
-
-                }
-                else
-                {
-                    blog.Image = null;
-                }
                 _blogrepository.AddBlog(blog);
                 return RedirectToAction("index");
             }
@@ -84,17 +75,7 @@ namespace AspFinal.Areas.Admin.Controllers
 
                 updateBlog.ModifiedBy = _admin.Name;
                 updateBlog.ModifiedDate = DateTime.Now;
-                if (model.File == null)
-                {
-                    blog.Image = updateBlog.Image;
-                }
-                else
-                {
-                    blog.Image = _fileManager.Upload(model.File);
-                }
-                   
 
-                
                 _blogrepository.UpdateBlog(updateBlog, blog);
 
                 return RedirectToAction("index");
@@ -105,11 +86,6 @@ namespace AspFinal.Areas.Admin.Controllers
         {
             var blog = _blogrepository.GetBlogById(id);
             _blogrepository.RemoveBlog(blog);
-            if (blog.Image != null)
-            {
-                _fileManager.Delete(blog.Image);
-
-            }
             var blogs = _blogrepository.GetBlogText();
             var model = _mapper.Map<IEnumerable<Blog>, IEnumerable<BlogTablesViewModel>>(blogs);
             return PartialView("index", model);

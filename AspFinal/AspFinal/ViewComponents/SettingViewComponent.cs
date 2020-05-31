@@ -17,6 +17,7 @@ namespace AspFinal.ViewComponents
         {
             _homeRepository = homeRepository;
         }
+        //Setting View Component
         public IViewComponentResult Invoke()
         {
             var homeSlider = _homeRepository.GetSettings();

@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using AspFinal.Models;
-using Microsoft.AspNetCore.Http;
+﻿using AspFinal.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Repository.Repository.HomeRepository;
 
 namespace AspFinal.Controllers
@@ -18,6 +11,7 @@ namespace AspFinal.Controllers
         {
             _homeRepository = homeRepository;
         }
+        //Home View Index Page
         public IActionResult Index()
         {
             var model = new HomeViewModel

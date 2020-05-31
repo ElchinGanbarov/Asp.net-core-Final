@@ -62,6 +62,9 @@ namespace AspFinal.Mapping
             CreateMap<AboutUs, AboutModel>();
             CreateMap<AboutModel, AboutUs>();
 
+            CreateMap<BlogImages, BlogImagesViewModel>();
+            CreateMap<BlogImagesViewModel, BlogImages>();
+
 
         }
     }

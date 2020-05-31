@@ -17,8 +17,6 @@
                                 <th>Metn</th>
                                 <th>Sirket Adi</th>
                                 <th>Action Text</th>
-                                <th>Sekli</th>
-
                                 <th>
                                     <a class="btn btn-info text-white" asp-controller="blog" asp-action="create">Yeni Blog yarat</a>
                                 </th>
@@ -31,8 +29,6 @@
                                 <th>Metn</th>
                                 <th>Sirket Adi</th>
                                 <th>Action Text</th>
-                                <th>Sekli</th>
-
                             </tr>
                         </tfoot>
                         <tbody class="tbody">
@@ -46,19 +42,6 @@
                                 <td>@item.Text</td>
                                 <td>@item.ConpanyName</td>
                                 <td>@item.ActionText</td>
-
-
-                                @if (item.Image != null)
-                                {
-                                    <td>
-                                        <img width="100" src="~/uploads/@item.Image" />
-
-                                    </td>
-                                }
-                                else
-                                {
-                                    <td>NULL</td>
-                                }
 
 
 

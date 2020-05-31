@@ -115,6 +115,8 @@
 
 
 <script>
+
+    // Contact Submit Event Database Added//
     $(document).on("submit", ".contact", function (e) {
         e.preventDefault();
         let Contact_Email = $("#Contact_Email").val();
@@ -142,7 +144,7 @@
                 console.log(res);
                 $.toast({
                     heading: 'Məlumat',
-                    text: "Commentiniz baziya elave edildi",
+                    text: "Contactiniz baziya elave edildi",
                     icon: 'success',
                     loader: true,
                     bgColor: '#3988ff',

@@ -1,7 +1,6 @@
-﻿ @model AspFinal.Models.Blogs.BlogViewModel
+﻿@model AspFinal.Models.Blogs.BlogViewModel
 @{
     int count = 3;
-
 }
     <!-- start page-title -->
 <section class="page-title" style="background-image:url(/uploads/@Model.Settings.ElementAt(0).CoverImage)">
@@ -192,7 +191,6 @@
                                             </div>
                                         }
                                     }
-
                                 </li>
                             </ol>
                         </div> <!-- end comments-section -->
@@ -286,7 +284,6 @@
                             @foreach (var item in Model.Tags)
                             {
                                 <li><a href="#">@item.Name</a></li>
-
                             }
                  
                         </ul>
@@ -308,6 +305,7 @@
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 
 <script>
+    //Comment Submit Event Database Added//
     $(document).on("submit", ".comment", function (e) {
         e.preventDefault();
 
@@ -333,7 +331,6 @@
                 email: Contact_Email
             },
             success: function (res) {
-                console.log(res);
                      element.append(` <li class="comment">
                                     <div>
                                        
@@ -361,11 +358,8 @@
                     loaderBg: '#f7d40d',
                     position: 'bottom-right',
                 });
-
-
             }
         });
-
     });
 
 </script>

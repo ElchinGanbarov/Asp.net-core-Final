@@ -13,13 +13,13 @@ namespace Repository.Models
         [Required]
         [MaxLength(500)]
         public string Text { get; set; }
-        public string Image { get; set; }
         [Required]
         [MaxLength(100)]
         public string ConpanyName { get; set; }
         [Required]
         [MaxLength(100)]
         public string ActionText { get; set; }
+        public IEnumerable<BlogImages> Images { get; set; }
         public IEnumerable<BlogText> BlogTexts { get; set; }
 
     }

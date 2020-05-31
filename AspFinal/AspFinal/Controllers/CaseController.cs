@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AspFinal.Models;
+﻿using AspFinal.Models;
 using Microsoft.AspNetCore.Mvc;
 using Repository.Repository.CaseRepository;
 using Repository.Repository.HomeRepository;
@@ -19,6 +15,7 @@ namespace AspFinal.Controllers
             _homeRepository = homeRepository;
             _caseRepository = caseRepository;
         }
+        //CaseStudies Page View Model//
         public IActionResult CaseStudies()
         {
             var model = new HomeViewModel
@@ -29,6 +26,8 @@ namespace AspFinal.Controllers
             };
             return View(model);
         }
+
+        //CaseSingle Page View Model//
         public IActionResult CaseSingle()
         {
             var model = new HomeViewModel

@@ -382,3 +382,6 @@ C:\Users\Admin\Desktop\Asp.net-core-Final\AspFinal\AspFinal\obj\Debug\netcoreapp
 C:\Users\Admin\Desktop\Asp.net-core-Final\AspFinal\AspFinal\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Contact\Index.cshtml.g.cs
 C:\Users\Admin\Desktop\Asp.net-core-Final\AspFinal\AspFinal\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Contact\Create.cshtml.g.cs
 C:\Users\Admin\Desktop\Asp.net-core-Final\AspFinal\AspFinal\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Contact\Edit.cshtml.g.cs
+C:\Users\Admin\Desktop\Asp.net-core-Final\AspFinal\AspFinal\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\BlogImages\Index.cshtml.g.cs
+C:\Users\Admin\Desktop\Asp.net-core-Final\AspFinal\AspFinal\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\BlogImages\Create.cshtml.g.cs
+C:\Users\Admin\Desktop\Asp.net-core-Final\AspFinal\AspFinal\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\BlogImages\Edit.cshtml.g.cs

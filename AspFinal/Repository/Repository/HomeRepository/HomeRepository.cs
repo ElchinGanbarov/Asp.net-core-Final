@@ -19,7 +19,7 @@ namespace Repository.Repository.HomeRepository
         IEnumerable<LikeableArea> GetLikeableAreas();
         IEnumerable<Testimonial> GetTestimonials();
         IEnumerable<HomeSlider> GetFullHomeSlider();
-        IEnumerable<Blog> GetBlogs();
+        IEnumerable<Blog> GetBlogs(int count);
         IEnumerable<Agent> GetCaseAgent();
         Contact CreateComment(Contact home);
         Settings SingleSetting();
@@ -110,9 +110,9 @@ namespace Repository.Repository.HomeRepository
             return _context.Agents.Include(a=>a.Category).ToList();
         }
 
-        public IEnumerable<Blog> GetBlogs()
+        public IEnumerable<Blog> GetBlogs(int count)
         {
-            return _context.Blogs.Where(b => b.Status).ToList();
+            return _context.Blogs.Where(b => b.Status).Include(b=>b.Images).Take(count).ToList();
         }
 
         public IEnumerable<Brand> GetBrands()

@@ -37,6 +37,8 @@ namespace Repository.Data
         public DbSet<Solution> Solutions { get; set; }
         public DbSet<AboutClaim> AboutClaims { get; set; }
         public DbSet<AboutPolicy> AboutPolicies { get; set; }
+        public DbSet<BlogImages> BlogImages { get; set; }
+
 
 
 

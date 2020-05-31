@@ -1,9 +1,6 @@
 ﻿using AspFinal.Models.Contact;
 using Repository.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace AspFinal.Models
 {
@@ -21,6 +18,8 @@ namespace AspFinal.Models
         public ContactViewModel Contact { get; set; }
         public CaseStudiesSingle CaseStudies { get; set; }
         public IEnumerable<Solution> Solutions { get; set; }
+        public IEnumerable<BlogImages> BlogImages { get; set; }
+
 
 
 

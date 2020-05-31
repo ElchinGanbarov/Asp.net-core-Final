@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AspFinal.Models;
 using AspFinal.Models.Blogs;
 using AutoMapper;
@@ -30,18 +27,22 @@ namespace AspFinal.Controllers
             _mapper = mapper;
             _blogRepository = blogRepository;
         }
+        //BlogGrid View
         public IActionResult BlogGrid()
         {
             var model = new HomeViewModel
             {
                 Categories = _homeRepository.GetCategories(),
                 Settings = _homeRepository.GetSettings(),
-                Blogs = _homeRepository.GetBlogs(),
+                Blogs = _homeRepository.GetBlogs(6),
+                BlogImages=_blogRepository.ImagesTrue()
               
                 
             };
             return View(model);
         }
+
+        //BlogSingle View
         public IActionResult BlogSingle()
         {
             var model = new BlogViewModel {
@@ -55,8 +56,9 @@ namespace AspFinal.Controllers
             };
             return View(model);
         }
+
+        //Comments Added Database//
         [HttpPost]
-        //[ValidateAntiForgeryToken]
         public IActionResult Comment(CommentViewModel model)
         {
             if (ModelState.IsValid)
@@ -64,15 +66,12 @@ namespace AspFinal.Controllers
                 var comment = _mapper.Map<CommentViewModel, Comments>(model);
                 comment.DateTime = DateTime.Now;
                 _categoryRepository.CreateContact(comment);
-                //return RedirectToAction("blogsingle","blog");
+                return Ok(model);
             }
-
-
-            //return View("~/Views/Blog/BlogSingle.cshtml", new BlogViewModel
-            //{
-            //    Contact = contact
-            //});
-            return Ok(model);
+            return View("~/Views/Blog/BlogSingle.cshtml", new BlogViewModel
+            {
+                Contact = model
+            }); 
         }
 
     }

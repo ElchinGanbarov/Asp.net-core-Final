@@ -1,4 +1,7 @@
 ﻿@model HomeViewModel
+@{ 
+    int count = 0;
+}
 <!-- start page-title -->
 <section class="page-title" style="background-image:url(/uploads/@Model.Settings.ElementAt(0).CoverImage)">
     <div class="page-title-container">
@@ -26,35 +29,63 @@
                 <div class="blog-content clearfix">
                     @foreach (var item in Model.Blogs)
                     {
+                        count++;
+                        if (count == 3)
+                        {
+                            <div class="post format-gallery">
+                                <div class="entry-media post-slider">
+
+                                    <img src="~/uploads/@item.Images.ElementAt(0).Image" alt="@item.Images.ElementAt(0).Image">
+                                    <img src="~/uploads/@item.Images.ElementAt(1).Image" alt="@item.Images.ElementAt(1).Image">
+
+
+
+                                </div>
+                                <ul class="entry-meta">
+                                    <li><a href="#"><i class="fi flaticon-tag-1"></i> @item.ConpanyName</a></li>
+                                </ul>
+                                <h3><a href="#">@item.Title</a></h3>
+                                <p>@item.Text</p>
+                                <a href="#" class="theme-btn-s3">@item.ActionText</a>
+                            </div>
+                        }
+                        if (count == 3)
+                        {
+                            <div class="post format-video">
+                                <div class="entry-media video-holder">
+                                   
+                                        <img src="~/uploads/@item.Images.ElementAt(0).Image" alt="@item.Images.ElementAt(0).Image">
+
+                                    
+                                    <a href="https://www.youtube.com/embed/7e90gBu4pas?autoplay=1" class="video-btn" data-type="iframe">
+                                        <i class="fi flaticon-play"></i>
+                                    </a>
+                                </div>
+                                <ul class="entry-meta">
+                                    <li><a href="#"><i class="fi flaticon-tag-1"></i> @item.ConpanyName</a></li>
+                                </ul>
+                                <h3><a href="#">@item.Title</a></h3>
+                                <p>@item.Text</p>
+                                <a href="#" class="theme-btn-s3">@item.ActionText</a>
+                            </div>
+                        }
+
                         <div class="post format-standard-image">
                             <div class="entry-media">
-                                <img src="~/uploads/@item.Image" alt="@item.Image">
+                               
+                                    <img src="~/uploads/@item.Images.ElementAt(0).Image" alt="@item.Images.ElementAt(0).Image">
+
+                                
                             </div>
                             <ul class="entry-meta">
                                 <li><a href="#"><i class="fi flaticon-tag-1"></i>@item.ConpanyName</a></li>
                             </ul>
                             <h3><a href="#">@item.Title</a></h3>
                             <p>@item.Text</p>
-                            <a href="#" class="theme-btn-s3">@item.ActionText</a>
+                            <a href="https://localhost:44344/blog/blogsingle" class="theme-btn-s3">@item.ActionText</a>
                         </div>
-                    }            
-                    <div class="pagination-wrapper pagination-wrapper-center">
-                        <ul class="pg-pagination">
-                            <li>
-                                <a href="#" aria-label="Previous">
-                                    <i class="fi flaticon-back"></i>
-                                </a>
-                            </li>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li>
-                                <a href="#" aria-label="Next">
-                                    <i class="fi flaticon-next"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                    }
+                
                 </div>
             </div>
         </div>

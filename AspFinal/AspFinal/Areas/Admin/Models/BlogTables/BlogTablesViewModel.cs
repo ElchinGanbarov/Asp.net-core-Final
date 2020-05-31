@@ -25,6 +25,5 @@ namespace AspFinal.Areas.Admin.Models.BlogTables
         [Required(ErrorMessage = "Action texti adi daxil edin...")]
         [MaxLength(100)]
         public string ActionText { get; set; }
-        public IFormFile File { get; set; }
     }
 }

@@ -13,7 +13,7 @@
                 <div class="form-group">
                     <label>Vəziyyəti</label>
                     <div class="custom-control custom-radio custom-control-inline ml-3">
-                        <input type="radio" id="Status" value="true" name="Status" class="custom-control-input">
+                        <input type="radio" id="Status" value="true" name="Status" class="custom-control-input" checked>
                         <label class="custom-control-label" for="Status">Aktiv</label>
                         <span class="field-validation-valid text-danger" asp-validation-for="Status"></span>
 
@@ -44,12 +44,6 @@
                     <label asp-for="ActionText">Action texti</label>
                     <input class="form-control form-control-user slug-source" asp-for="ActionText">
                     <span class="field-validation-valid text-danger" asp-validation-for="ActionText"></span>
-                </div>
-
-                <div class="custom-file">
-                    <label asp-for="File" class="custom-file-label">Sekil secin</label>
-                    <input asp-for="File" type="file" class="custom-file-input" aria-describedby="inputGroupFileAddon03">
-                    <span asp-validation-for="File" class="text-danger"></span>
                 </div>
                 <div class="form-group d-flex justify-content-end mt-3">
                     <button type="submit" class="btn btn-primary btn-icon-split">

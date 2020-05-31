@@ -14,6 +14,7 @@ namespace AspFinal.ViewComponents
         {
             _homeRepository = homeRepository;
         }
+        //Testmonial View Component
         public IViewComponentResult Invoke()
         {
             var testmonial = _homeRepository.GetTestimonials();
