@@ -7,7 +7,7 @@ namespace AspFinal.Models
 {
     public class HomeSliderViewModel
     {
-        public string Title { get; set; }
+             public string Title { get; set; }
 
         public string Slogan { get; set; }
 
